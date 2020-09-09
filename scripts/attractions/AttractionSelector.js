@@ -21,18 +21,4 @@ export const AttractionSelect = () => {
             const attractions = useAttractions()
             render(attractions)
         })
-}
-
-eventHub.addEventListener("change", event => {
-    console.log("change event")
-    if (event.target.id === "attractionSelect") {
-        console.log("change event if triggered")
-        const customEvent = new CustomEvent ("attractionChosen", {
-            detail: {
-                attractionId: event.target.value
-            }
-        })
-        eventHub.dispatchEvent(customEvent)
     }
-
-})

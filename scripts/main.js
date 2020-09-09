@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 import {AttractionSelect} from "./attractions/AttractionSelector.js"
-import { meaninglessImport } from "./attractions/AttractionPreview.js"
 AttractionSelect()
-=======
+
 import {ParkSelect} from "./parks/ParkList.js"
 import {getParks} from "./parks/ParkProvider.js"
 
@@ -13,4 +11,3 @@ getParks()
     ParkSelect()
     //add anything relating to a park HERE or else it won't run
 })
->>>>>>> d18f19f71930fe8075a99ff2bf29504f8f33c375
