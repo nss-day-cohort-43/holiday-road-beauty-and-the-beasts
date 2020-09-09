@@ -1,14 +1,12 @@
-import { useParks, getParks } from './ParkProvider.js'
+import { useParks } from './ParkProvider.js'
 const parkTarget = document.querySelector(".park")
 
 
 //initial render of parks dropdown
 export const ParkSelect = () => {
-    getParks().then(()=> {
-            const parks = useParks()
-            render(parks)  
-        })
-}
+            const parkList = useParks()
+            render(parkList)  
+        }
 
 //inner HTML of dropdown
 const render = (parkCollection) => {
@@ -17,7 +15,7 @@ const render = (parkCollection) => {
             <option value="0">Choose a Park!</option>
             ${
                 parkCollection.map(parkObj => {
-                    return `<option value="${parkObj.data.id}">${parkObj.data.name}</option>`
+                    return `<option value="${parkObj.id}">${parkObj.name}</option>`
                 })
 
             }
