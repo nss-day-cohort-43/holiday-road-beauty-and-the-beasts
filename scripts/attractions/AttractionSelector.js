@@ -1,6 +1,5 @@
 import { getAttractions, useAttractions } from "./AttractionProvider.js"
-const selectorTarget = document.querySelector(".dropdown-container")
-const eventHub = document.querySelector("main")
+const selectorTarget = document.querySelector(".attraction")
 
 const render = attractionCollection => {
     selectorTarget.innerHTML += `
