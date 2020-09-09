@@ -1,6 +1,7 @@
 import { ParkSelect } from './parks/ParkList.js';
 import { getParks } from './parks/ParkProvider.js';
 import { eateryDropdownRender } from './eateries/EateryList.js';
+import { AttractionSelect } from './attractions/AttractionSelector.js';
 
 //everything dealing with park data MUST be after getParks() bc it takes FOREVER
 getParks().then(() => {
@@ -9,3 +10,5 @@ getParks().then(() => {
 });
 
 eateryDropdownRender();
+
+AttractionSelect();
