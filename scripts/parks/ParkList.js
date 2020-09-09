@@ -23,3 +23,19 @@ const render = (parkCollection) => {
     `
 }
 
+const eventHub = document.querySelector("main")
+
+eventHub.addEventListener("change", event => {
+    if (event.target.id === "parkSelect"){
+        const parkId = event.target.value
+
+        const parkChosenEvent = new CustomEvent("parkChosen", {
+            detail: {
+                parkIdChosen: parkId
+            }
+        })
+        eventHub.dispatchEvent(parkChosenEvent)
+    }
+})
+
+
