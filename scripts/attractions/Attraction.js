@@ -1,4 +1,4 @@
-export const AttractionHTML = (attraction) => {
+export const AttractionPreviewHTML = (attraction) => {
     return `
     
     `

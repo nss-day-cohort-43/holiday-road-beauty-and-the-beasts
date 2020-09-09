@@ -3,7 +3,7 @@ const selectorTarget = document.querySelector(".dropdown-container")
 
 const render = attractionCollection => {
     selectorTarget.innerHTML += `
-        <select class="dropdown" id="crimeSelect">
+        <select class="dropdown" id="attractionSelect">
             <option value="0">Please select an attraction...</option>
             ${
                 attractionCollection.map(attractionObj => {
@@ -21,3 +21,8 @@ export const AttractionSelect = () => {
             render(attractions)
         })
 }
+
+eventHub.addEventListener("change", event => {
+    if (event.target.id === "attractionSelect")
+
+})
