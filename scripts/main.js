@@ -3,7 +3,7 @@ AttractionSelect()
 
 import {ParkSelect} from "./parks/ParkList.js"
 import {getParks} from "./parks/ParkProvider.js"
-
+import { mainListener } from "./parks/ParkPreview.js"
 
 //everything dealing with park data MUST be after getParks() bc it takes FOREVER
 getParks()

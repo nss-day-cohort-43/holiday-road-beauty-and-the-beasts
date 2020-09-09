@@ -34,6 +34,7 @@ eventHub.addEventListener("change", event => {
                 parkIdChosen: parkId
             }
         })
+        console.log("sender works")
         eventHub.dispatchEvent(parkChosenEvent)
     }
 })
