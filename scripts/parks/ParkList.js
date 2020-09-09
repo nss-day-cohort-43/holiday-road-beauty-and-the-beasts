@@ -23,3 +23,10 @@ const render = (parkCollection) => {
     `
 }
 
+const eventHub = document.querySelector("main")
+
+eventHub.addEventListener("change", event => {
+    
+})
+
+
