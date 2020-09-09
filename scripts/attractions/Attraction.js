@@ -1,4 +1,5 @@
 export const AttractionPreviewHTML = (attraction) => {
+    console.log(attraction)
     return `
     <div>${attraction.name}</div>
     <div${attraction.city}, ${attraction.state}></div>
@@ -9,7 +10,6 @@ export const AttractionPreviewHTML = (attraction) => {
 
 const amenetiesLogic = (attraction) => {
     let amenetiesHTML = ``
-    console.log(attraction)
     if (attraction.ameneties.souvenirs === true) {
         amenetiesHTML += `<div>✔️ Giftshop</div>`
     } else {

@@ -13,6 +13,8 @@ eventHub.addEventListener("attractionChosen", event => {
     if (event.detail.attractionId !== '0') {
         const attractionId = event.detail.attractionId
         const selectedAttraction = useAttractions().filter(attraction => {
+            console.log("attraction.id", attraction.id)
+            console.log("attractionId", attractionId)
             if (attraction.id === attractionId) {
                 return true
             }
