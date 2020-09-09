@@ -4,23 +4,24 @@ import { useAttractions } from "./AttractionProvider.js"
 //selects an eventHub to hold custom events
 const eventHub = document.querySelector("main")
 
-//selecs the target for the preview card
+//selects the target for the preview card
 const previewTarget = document.querySelector(".itenerary-preview")
 
-//
+//pulls the function to create the HTML for the atraction card an places it in the DOM
 const AttractionPreview = attraction => {
-    AttractionPreviewHTML(attraction)
+    const html  = AttractionPreviewHTML(attraction)
+    previewTarget.innerHTML += html
 }
 
-//
+/*
+    listens for the custom event when an attraction is chosen, 
+    and calls the AttractionPreview function to create the preivew card in the DOM 
+*/
 eventHub.addEventListener("attractionChosen", event => {
-    console.log("attractionChosen")
     if (event.detail.attractionId !== '0') {
-        const attractionId = event.detail.attractionId
-        const selectedAttraction = useAttractions().filter(attraction => {
-            if (attraction.id === parseInt(attractionId)) {
-                console.log("attraction.id", attraction.id)
-                console.log("attractionId", attractionId)
+        const attractionId = parseInt(event.detail.attractionId)
+        const selectedAttraction = useAttractions().find(attraction => {
+            if (attraction.id === attractionId) {
                 return true
             }
         })
@@ -28,7 +29,7 @@ eventHub.addEventListener("attractionChosen", event => {
     }
 })
 
-//an export so that my "attractionChosen" eventListener will work
+//an purposeless export so that my "attractionChosen" eventListener will work
 export const meaninglessImport = () => {
     console.log("hope this works")
 } 

@@ -35,9 +35,7 @@ export const AttractionSelect = () => {
     creates a custom event that passed the id of the chosen attraction to the eventHub
 */
     eventHub.addEventListener("change", event => {
-        console.log("change event")
         if (event.target.id === "attractionSelect") {
-            console.log("change event if triggered")
             const customEvent = new CustomEvent ("attractionChosen", {
                 detail: {
                     attractionId: event.target.value
