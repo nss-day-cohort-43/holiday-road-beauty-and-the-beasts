@@ -1,3 +1,6 @@
+import {AttractionSelect} from "./attractions/AttractionSelector.js"
+AttractionSelect()
+
 import {ParkSelect} from "./parks/ParkList.js"
 import {getParks} from "./parks/ParkProvider.js"
 
