@@ -1,5 +1,6 @@
 import { getAttractions, useAttractions } from "./AttractionProvider.js"
 const selectorTarget = document.querySelector(".dropdown-container")
+const eventHub = document.querySelector("main")
 
 const render = attractionCollection => {
     selectorTarget.innerHTML += `
@@ -23,6 +24,15 @@ export const AttractionSelect = () => {
 }
 
 eventHub.addEventListener("change", event => {
-    if (event.target.id === "attractionSelect")
+    console.log("change event")
+    if (event.target.id === "attractionSelect") {
+        console.log("change event if triggered")
+        const customEvent = new CustomEvent ("attractionChosen", {
+            detail: {
+                attractionId: event.target.value
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
 
 })
