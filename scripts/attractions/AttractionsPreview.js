@@ -10,7 +10,8 @@ const previewTarget = document.querySelector(".itenerary-preview")
 //pulls the function to create the HTML for the atraction card an places it in the DOM
 const AttractionPreview = attraction => {
     const html  = AttractionPreviewHTML(attraction)
-    previewTarget.innerHTML += html
+    //change to += if we decide to add capability for more than attraction
+    previewTarget.innerHTML = html
 }
 
 /*
