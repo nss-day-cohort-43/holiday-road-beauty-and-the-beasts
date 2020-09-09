@@ -1,4 +1,5 @@
 import {AttractionSelect} from "./attractions/AttractionSelector.js"
+import { meaninglessImport } from "./attractions/AttractionsPreview.js"
 AttractionSelect()
 
 import {ParkSelect} from "./parks/ParkList.js"
