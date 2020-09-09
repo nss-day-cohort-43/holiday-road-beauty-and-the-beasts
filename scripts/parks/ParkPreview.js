@@ -44,10 +44,10 @@ const renderParkPreview = (parkChosen) => {
             ${
                 parkChosen.map(parkObj => {
                     return `<div class="park-name">${parkObj.name}</div>
-                    <a href="${parkObj.url}" target="_blank" class="park-site">Park Website</a>
-                    <div class="location">${parkObj.addresses[1].city}, ${parkObj.addresses[1].stateCode}</div>
-                    <button id="parkDetails">Details</button>
-                    <div class="park-detail-container"</div>
+                        <a href="${parkObj.url}" target="_blank" class="park-site">Park Website</a>
+                        <div class="location">${parkObj.addresses[1].city}, ${parkObj.addresses[1].stateCode}</div>
+                        <button id="parkDetails">Details</button>
+                        <div class="park-detail-container"</div>
                     `
                 })
             }
@@ -64,7 +64,16 @@ eventHub.addEventListener("click", clickEvent => {
 
 const renderParkDetails = (parkChosen) => {
     detailsTarget.innerHTML = `
-    <div class
+    ${
+        parkChosen.map(parkObj => {
+            return `
+                <div class="park-description">${parkObj.description}</div>
+                <div class="park-address"></div>
+                <div class="park-fee"></div>
+                <div class="park-hours"></div>
+            `
+        })
+    }
     `
 
 }
