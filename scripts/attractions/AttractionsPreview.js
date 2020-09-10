@@ -6,10 +6,9 @@ import { AttractionDetailsHTML } from "./Attraction.js"
 const eventHub = document.querySelector("main")
 
 //selects the target for the preview card
-const previewTarget = document.querySelector(".itenerary-preview")
-//
-let selectedAttraction
+const previewTarget = document.querySelector(".preview-attraction")
 
+let selectedAttraction
 //pulls the function to create the HTML for the atraction card an places it in the DOM
 const AttractionPreview = attraction => {
     const html  = AttractionPreviewHTML(attraction)
@@ -51,6 +50,6 @@ eventHub.addEventListener("click", event => {
 
 //an purposeless export so that my "attractionChosen" eventListener will work
 export const mainListenerForAttractions = () => {
-    console.log("hope this works")
+    console.log("this connectes AttractinsPreview.js to the main.js")
 } 
 
