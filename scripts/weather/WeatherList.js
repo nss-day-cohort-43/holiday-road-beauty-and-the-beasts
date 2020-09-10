@@ -29,3 +29,22 @@ const renderWeather = () => {
 //return a high, a low, and description
 
 //weather.main will help with corresponding icons to weather
+
+const usefulWeather = () => {
+    const hugeWeatherArray = useWeather()
+    for(let i = 1; i <= 8; i++){
+
+    }
+    for(let i = 9; i <= 16; i++){
+        
+    }
+    for(let i = 17; i <= 24; i++){
+        
+    }
+    for(let i = 25; i <= 32; i++){
+        
+    }
+    for(let i = 33; i <= 40; i++){
+        
+    }
+}
