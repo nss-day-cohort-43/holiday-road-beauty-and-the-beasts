@@ -30,7 +30,6 @@ eventHub.addEventListener("parkChosen", event => {
         parkArray = matchingPark
         //renders HTML of matching park
         renderParkPreview(matchingPark)
-        console.log(parkArray)
     }
 })
 

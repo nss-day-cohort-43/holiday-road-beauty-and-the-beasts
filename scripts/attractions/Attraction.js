@@ -2,7 +2,7 @@
 export const AttractionPreviewHTML = (attraction) => {
     return `
     <div class="attraction-name">${attraction.name}</div>
-    <divvclass="attraction-location">${attraction.city}, ${attraction.state}</div>
+    <div class="attraction-location">${attraction.city}, ${attraction.state}</div>
     <button type="button" class="attractionDetails">Details</button>
     `
 }
