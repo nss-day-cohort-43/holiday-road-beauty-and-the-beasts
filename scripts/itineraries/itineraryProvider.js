@@ -46,6 +46,8 @@ export const saveItinerary = () => {
             },
             body: JSON.stringify(itinerary)
         })
+        .then(getItineraries)
+        .then(dispatchStateChangeEvent)
 }
 //a set of 3 event listeners which registers when a drop down option is chosen and saves the detail to a local variable
 eventHub.addEventListener("attractionChosen", event => {
@@ -65,3 +67,25 @@ eventHub.addEventListener('eateryChosenEvent', (event) => {
         eatery = event.detail.chosenEateryBusinessName
     }
 })
+
+// tells the itinerary list that the databaser has changed
+const dispatchStateChangeEvent = () => {
+    const itineraryStateChangedEvent = new CustomEvent("itineraryStateChanged")    
+    eventHub.dispatchEvent(itineraryStateChangedEvent)
+}
+
+//creates a copy of te itineraries to use on other modules
+export const useItinerary = () => {
+    return itinerary.slice();
+}
+
+// get request for the list of itineraries on the local json-server database
+export const getItineraries = () => {
+    return fetch('http://localhost:8088/Itineraries')
+        .then(response => response.json())
+        .then(parsedItinerary => {
+            console.log(parsedItinerary, "parsedItinerary")
+            let itineraries = parsedNotes
+            console.log("itineraries", itineraries)
+        })
+}
