@@ -3,10 +3,11 @@ export const AttractionPreviewHTML = (attraction) => {
     return `
     <div class="attraction-name">${attraction.name}</div>
     <div class="attraction-location">${attraction.city}, ${attraction.state}</div>
-    <button type="button" class="attractionDetails">Details</button>
+    <button type="button" id="attractionDetails">Details</button>
     `
 }
 
+//a function which will create additional details for the preview card
 export const AttractionDetailsHTML = (attraction) => {
     return `
     <div>${attraction.description}</div> 
@@ -17,7 +18,6 @@ export const AttractionDetailsHTML = (attraction) => {
 // and creates HTML to reflect that
 
 const amenetiesLogic = (attraction) => {
-        console.log(attraction)
         let amenetiesHTML = ``
         if (attraction.ameneties.souvenirs === true) {
         amenetiesHTML += `<div>✔️ Giftshop</div>`
