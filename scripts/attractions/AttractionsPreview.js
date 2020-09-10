@@ -44,8 +44,7 @@ eventHub.addEventListener("click", event => {
 })
 
 
-//an purposeless export so that my "attractionChosen" eventListener will work
+//an export to link this page to the main.js so that my "attractionChosen" eventListener will work
 export const attractionsPreviewListener = () => {
-    console.log("this connectes AttractionsPreview.js to the main.js")
 } 
 
