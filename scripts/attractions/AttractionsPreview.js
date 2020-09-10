@@ -5,7 +5,7 @@ import { useAttractions } from "./AttractionProvider.js"
 const eventHub = document.querySelector("main")
 
 //selects the target for the preview card
-const previewTarget = document.querySelector(".itenerary-preview")
+const previewTarget = document.querySelector(".preview-attraction")
 
 //pulls the function to create the HTML for the atraction card an places it in the DOM
 const AttractionPreview = attraction => {
