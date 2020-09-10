@@ -41,6 +41,7 @@ export const AttractionSelect = () => {
                     attractionId: event.target.value
                 }
             })
+            console.log("clicked", customEvent)
             eventHub.dispatchEvent(customEvent)
         }
     
