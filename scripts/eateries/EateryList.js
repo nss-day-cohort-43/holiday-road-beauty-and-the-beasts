@@ -7,7 +7,7 @@ import { getEatery, useEatery } from './EateryProvider.js';
 // We are also setting the target for our render function, we're placing the dropdown at
 // the <div> Class selectEatery
 const eventHub = document.querySelector('main');
-const dropDownTarget = document.querySelector('.selectEatery');
+const dropDownTarget = document.querySelector('.eatery');
 
 // This is the Event listener for the drop down bar, it will send out a custom event.
 // we're using the custom event to grab a payload. So we can use the businessName
