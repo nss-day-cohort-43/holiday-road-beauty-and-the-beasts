@@ -1,16 +1,12 @@
 import {useParks} from './ParkProvider.js'
 
 //listener doesn't work without a connection to main
-export const mainListener = () => {
-    console.log("I just need this so the main isn't lost")
-}
+export const parkPreviewListener = () => {}
 
 //defines eventHub for listener
 const eventHub = document.querySelector("main")
 //defines where park info will be sent on page
 const parkPreviewTarget = document.querySelector(".preview-park")
-//defines where details of park will go on page
-const detailsTarget = document.querySelector(".park-detail-container")
 //holds parks that was chosen after event
 let parkArray = []
 
@@ -34,6 +30,7 @@ eventHub.addEventListener("parkChosen", event => {
         parkArray = matchingPark
         //renders HTML of matching park
         renderParkPreview(matchingPark)
+        console.log(parkArray)
     }
 })
 
@@ -47,7 +44,7 @@ const renderParkPreview = (parkChosen) => {
                         <a href="${parkObj.url}" target="_blank" class="park-site">Park Website</a>
                         <div class="location">${parkObj.addresses[1].city}, ${parkObj.addresses[1].stateCode}</div>
                         <button id="parkDetails">Details</button>
-                        <div class="park-detail-container"</div>
+                        <div class="park-detail-container"></div>
                     `
                 })
             }
@@ -55,25 +52,54 @@ const renderParkPreview = (parkChosen) => {
     `
 }
 
+//listens for detail button click and runs the rendering functions
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "parkDetails"){
         renderParkDetails(parkArray)
+        renderParkAddress(parkArray)
     }
 })
 
-
+//renders the details, except address
 const renderParkDetails = (parkChosen) => {
+    //defines where details of park will go on page
+    const detailsTarget = document.querySelector(".park-detail-container")
     detailsTarget.innerHTML = `
     ${
         parkChosen.map(parkObj => {
             return `
-                <div class="park-description">${parkObj.description}</div>
-                <div class="park-address"></div>
-                <div class="park-fee"></div>
-                <div class="park-hours"></div>
+                <div class="park-description">${parkObj.description}</div><br>
+                <div class="park-address">${parkObj.addresses[0].line1}</div>
+                <div class="location-details">${parkObj.addresses[0].city}, ${parkObj.addresses[0].stateCode} ${parkObj.addresses[0].postalCode}</div>
+                <div class="park-fee">${parkObj.entranceFees[0].description}</div><br>
+                <div class="park-hours">${parkObj.operatingHours[0].description}<br>
+                </div>
             `
         })
     }
     `
-
 }
+
+
+
+//renders the park address
+const renderParkAddress = (parkChosen) => {
+    //targets address container from previous function
+    const addressTarget = document.querySelector(".park-address")
+    parkChosen.map(parkObj => {
+        const addressObj = parkObj.addresses[0]
+        //if address lines 2 or 3 are empty, this makes sure not to add them
+        if(addressObj.line3 !==""){
+            return addressTarget.innerHTML += `
+            <br>${addressObj.line2}<br>${addressObj.line3}
+            `
+        } else if(addressObj.line2 !==""){
+            return addressTarget.innerHTML += `
+            <br>${addressObj.line2}
+            `
+        } else {
+            return addressTarget.innerHTML += ""
+    }})
+    
+}
+
