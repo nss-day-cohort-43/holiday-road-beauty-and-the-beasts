@@ -11,7 +11,6 @@ eventHub.addEventListener ("change", event => {
     const selectedAttraction = document.querySelector("#attractionSelect")
     const saveBtnContainer = document.getElementById("saveBtnContainer")
 
-    console.log(selectedAttraction.value) 
     if (selectedPark.value !== "0" &&
      selectedEatery.value !== "0" && 
      selectedAttraction.value !== "0") {
