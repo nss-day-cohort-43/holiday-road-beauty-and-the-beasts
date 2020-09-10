@@ -5,13 +5,13 @@ import { AttractionSelect } from './attractions/AttractionSelector.js';
 import { attractionsPreviewListener } from './attractions/AttractionsPreview.js';
 import { parkPreviewListener } from './parks/ParkPreview.js';
 import { eateryPreviewListener } from './eateries/EateryPreview.js';
-import { mainListenerForEatery } from './eateries/EateryPreview.js';
 import { saveItinerary } from './itineraries/itineraryProvider.js';
 
 // This is for the mainListener calls
 eateryPreviewListener();
 //allows main to access the listener
 parkPreviewListener();
+attractionsPreviewListener();
 // This is the end of the mainListener calls
 
 //lets the user know that the parks are loading

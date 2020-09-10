@@ -63,12 +63,48 @@ const renderEateryDetails = (eateryObj) => {
 	const eateryDetailsTarget = document.querySelector(
 		'.eatery-detail-container'
 	);
-	let createdHTML = `<h5>${eateryObj.businessName}</h5>
+	let createdHTML = `<h4>${eateryObj.businessName}</h4>
   <p>${eateryObj.city}, ${eateryObj.state}</p>
   <p>${eateryObj.description}</p>
-  <p>ameneties</p>`;
+  ${amenetiesLogic(eateryObj)}`;
 
 	return (eateryDetailsTarget.innerHTML = createdHTML);
 };
 
 // This might be another method IDK the benadryl is kicking in really hard. Holy fuck.
+// This is a logic filter for handling the booleans returned by the api
+// Adding easy to read check marks to signal to the user if an amenetie is available.
+const amenetiesLogic = (EateryObj) => {
+	let amenetiesHTML = ``;
+	if (EateryObj.ameneties.wheelchairAccessible === true) {
+		amenetiesHTML += `<div>✔️ Wheelchair Accessible</div>`;
+	} else {
+		amenetiesHTML += `<div>❌ Wheelchair Accessible</div>`;
+	}
+	if (EateryObj.ameneties.restrooms === true) {
+		amenetiesHTML += `<div>✔️ Restrooms</div>`;
+	} else {
+		amenetiesHTML += `<div>❌ Restrooms</div>`;
+	}
+	if (EateryObj.ameneties.petFriendly === true) {
+		amenetiesHTML += `<div>✔️ Pet Friendly</div>`;
+	} else {
+		amenetiesHTML += `<div>❌ Pet Friendly</div>`;
+	}
+	if (EateryObj.ameneties.wifi === true) {
+		amenetiesHTML += `<div>✔️ Wifi</div>`;
+	} else {
+		amenetiesHTML += `<div>❌ Wifi</div>`;
+	}
+	if (EateryObj.ameneties.diaperFacility === true) {
+		amenetiesHTML += `<div>✔️ Diaper Facility</div>`;
+	} else {
+		amenetiesHTML += `<div>❌ Diaper Facility</div>`;
+	}
+	if (EateryObj.ameneties.playground === true) {
+		amenetiesHTML += `<div>✔️ Playground</div>`;
+	} else {
+		amenetiesHTML += `<div>❌ Playground</div>`;
+	}
+	return amenetiesHTML;
+};
