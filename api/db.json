@@ -1,3 +1,22 @@
 {
-	"itineraries": []
+  "itineraries": [
+    {
+      "chosenPark": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488",
+      "chosenAttraction": "12",
+      "chosenEatery": "St. Elmo Steak House",
+      "id": 1
+    },
+    {
+      "chosenPark": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488",
+      "chosenAttraction": "12",
+      "chosenEatery": "St. Elmo Steak House",
+      "id": 2
+    },
+    {
+      "chosenPark": "9463E25C-7342-4A34-9537-4A6DA74B2B06",
+      "chosenAttraction": "7",
+      "chosenEatery": "Deer Park Tavern",
+      "id": 3
+    }
+  ]
 }
