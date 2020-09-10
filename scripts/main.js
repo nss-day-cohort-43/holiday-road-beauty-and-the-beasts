@@ -4,17 +4,16 @@ import { eateryDropdownRender } from './eateries/EateryList.js';
 import { AttractionSelect } from './attractions/AttractionSelector.js';
 import { meaninglessImport } from './attractions/AttractionsPreview.js';
 import { parkPreviewListener } from './parks/ParkPreview.js';
-import { mainListenerForEatery } from './eateries/EateryPreview.js';
+import { eateryPreviewListener } from './eateries/EateryPreview.js';
 
 // This is for the mainListener calls
-mainListenerForEatery();
+eateryPreviewListener();
 //allows main to access the listener
-parkPreviewListener()
+parkPreviewListener();
 // This is the end of the mainListener calls
 
-
 //lets the user know that the parks are loading
-loadingParks()
+loadingParks();
 //everything dealing with park data MUST be after getParks() bc it takes FOREVER
 getParks().then(() => {
 	ParkSelect();
@@ -24,4 +23,3 @@ getParks().then(() => {
 eateryDropdownRender();
 
 AttractionSelect();
-
