@@ -1,5 +1,5 @@
-import { ParkSelect } from './parks/ParkList.js';
-import { getParks, loadingParks } from './parks/ParkProvider.js';
+import { stateSelect } from './parks/ParkList.js';
+import { parkListener } from './parks/ParkProvider.js';
 import { eateryDropdownRender } from './eateries/EateryList.js';
 import { AttractionSelect } from './attractions/AttractionSelector.js';
 import { attractionsPreviewListener } from './attractions/AttractionsPreview.js';
@@ -12,15 +12,17 @@ eateryPreviewListener();
 //allows main to access the listener
 parkPreviewListener();
 attractionsPreviewListener();
+parkListener();
 // This is the end of the mainListener calls
 
 //lets the user know that the parks are loading
-loadingParks();
+// loadingParks();
 //everything dealing with park data MUST be after getParks() bc it takes FOREVER
 getParks().then(() => {
 	ParkSelect();
 	//add anything relating to a park HERE or else it won't run
 });
+stateSelect();
 
 eateryDropdownRender();
 
