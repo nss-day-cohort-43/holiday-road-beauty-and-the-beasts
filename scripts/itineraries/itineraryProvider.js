@@ -21,5 +21,5 @@ eventHub.addEventListener ("change", event => {
     }
 } )
 
-
-export const saveItinerary = ()=>{}
+//this will be a function to post the itinerary but for now it just links this moduel to main, so the listener will work
+export const saveItinerary = () => {}
