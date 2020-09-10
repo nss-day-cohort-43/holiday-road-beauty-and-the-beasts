@@ -16,3 +16,9 @@ export const getParks = () => {
             }
         )
 }
+
+//tells the user that the parks are, in fact, loading. although quite slowly.
+export const loadingParks = () => {
+    const contentTarget = document.querySelector(".park")
+    contentTarget.innerHTML = `Loading all Parks...`
+}
