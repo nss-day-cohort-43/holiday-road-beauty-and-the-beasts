@@ -1,5 +1,6 @@
 import {useParks} from './ParkProvider.js'
 import {getWeather} from '../weather/WeatherProvider.js'
+import { weatherList } from '../weather/WeatherList.js'
 
 //listener doesn't work without a connection to main
 export const parkPreviewListener = () => {}
@@ -34,8 +35,10 @@ eventHub.addEventListener("parkChosen", event => {
         parkArray = matchingPark
         //renders HTML of matching park
         renderParkPreview(matchingPark)
-        debugger
         getWeather()
+        .then(()=>{
+            weatherList()
+        })
     }
 })
 

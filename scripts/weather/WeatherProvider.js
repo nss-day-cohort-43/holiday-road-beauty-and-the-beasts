@@ -1,6 +1,5 @@
 import {parkInfoCopy} from "../parks/ParkPreview.js"
-//defines eventhub
-const eventHub = document.querySelector("main")
+
 
 //empty array to hold weather data
 let forecast = []
@@ -10,7 +9,6 @@ let park
 export const getWeather = () => {
     
         park = parkInfoCopy()
-        console.log(park)
         const location = park.map(parkObj =>{
             return{
             city: parkObj.addresses[0].city,
@@ -21,11 +19,14 @@ export const getWeather = () => {
         .then(
             parsedForecast => {
                 forecast = parsedForecast
-                console.log(forecast)
             }
         )
         //insert function to display weather in .then
         // .then()
+}
+
+export const useWeather = () => {
+    return forecast.slice()
 }
 
 export const weatherListener = () => {}
