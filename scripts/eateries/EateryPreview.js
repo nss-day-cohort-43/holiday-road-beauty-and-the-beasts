@@ -3,22 +3,22 @@
 
 import { useEatery } from './EateryProvider.js';
 
-//listener doesn't work without a connection to main - this is a bug we believe. But we're working around it.
+//listener doesn't work without a connection to main -
 export const mainListenerForEatery = () => {};
 
 //defines eventHub for listener
 const eventHub = document.querySelector('main');
-//defines where park info will be sent on page
+//defines where eatery info will be sent on page
 const eateryPreviewTarget = document.querySelector('.preview-eatery');
 
-//listens for a change from park dropdown
+//listens for a change from eatery dropdown
 eventHub.addEventListener('eateryChosenEvent', (event) => {
 	if ('chosenEateryBusinessName' in event.detail) {
 		//array of all the eateries
 		const allEateries = useEatery();
 		//this holds the eatery Biz name of the Business chosen in the dropdown
 		const EateryBizName = event.detail.chosenEateryBusinessName;
-		//filters all parks for JUST the chosen park
+		//filters all eateries for JUST the chosen eatery
 		const matchingEatery = allEateries.filter((EateryObj) => {
 			if (EateryObj.businessName === EateryBizName) {
 				return true;
