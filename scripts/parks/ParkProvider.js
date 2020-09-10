@@ -1,24 +1,30 @@
+import {ParkSelect} from './ParkList.js'
+
 //all parks will be added to this empty array
 let parks = [];
+
+//defines eventHub
+const eventHub = document.querySelector("main")
 
 //this will return a copy of the park data array
 export const useParks = () => {
     return parks.data.slice()
 }
 
-//this gets HUGE park object from API... be patient.
-export const getParks = () => {
-    return fetch("https://developer.nps.gov/api/v1/parks?api_key=4CCbkNphNpJ3QSNIMKkkLeLl2DrSerPMI1iTBQl1")
+//export so main.js recognizes this file
+export const parkListener = () => {}
+
+//event listener for state chosen that fetches relevant data
+eventHub.addEventListener("stateChosen", event => {
+    if("stateWanted" in event.detail){
+        const stateToFind = event.detail.stateWanted
+        return fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${stateToFind}&api_key=4CCbkNphNpJ3QSNIMKkkLeLl2DrSerPMI1iTBQl1`)
         .then(response => response.json())
         .then(
             parsedParks => {
                 parks = parsedParks
             }
         )
-}
-
-//tells the user that the parks are, in fact, loading. although quite slowly.
-export const loadingParks = () => {
-    const contentTarget = document.querySelector(".park")
-    contentTarget.innerHTML = `Loading all Parks...`
-}
+        .then(ParkSelect)
+    }
+})
