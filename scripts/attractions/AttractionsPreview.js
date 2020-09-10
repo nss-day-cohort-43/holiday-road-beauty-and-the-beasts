@@ -46,8 +46,6 @@ eventHub.addEventListener("click", event => {
         previewTarget.innerHTML = AttractionPreview(selectedAttraction)
         // document.getElementById("attractionDetails").textContent = "Details"
     }
-
-
 })
 
 

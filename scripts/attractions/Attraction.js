@@ -2,7 +2,7 @@
 export const AttractionPreviewHTML = (attraction) => {
     return `
     <div class="attraction-name">${attraction.name}</div>
-    <divvclass="attraction-location">${attraction.city}, ${attraction.state}</div>
+    <div class="attraction-location">${attraction.city}, ${attraction.state}</div>
     <button type="button" id="attractionDetails" class="show">Details</button>
     `
 }
@@ -22,12 +22,12 @@ const amenetiesLogic = (attraction) => {
         if (attraction.ameneties.souvenirs === true) {
         amenetiesHTML += `<div>✔️ Giftshop</div>`
     } else {
-        `<div>❌ Giftshop</div>`
+        amenetiesHTML +=`<div>❌ Giftshop</div>`
     }
     if (attraction.ameneties.restrooms === true) {
         amenetiesHTML += `<div>✔️Restrooms</div>`
     } else {
-        `<div>❌ Restrooms</div>`
+        amenetiesHTML += `<div>❌ Restrooms</div>`
     }
  return amenetiesHTML
 }
