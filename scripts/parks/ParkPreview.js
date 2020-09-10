@@ -10,6 +10,9 @@ const parkPreviewTarget = document.querySelector(".preview-park")
 //holds parks that was chosen after event
 let parkArray = []
 
+export const parkInfoCopy = () => {
+    return parkArray.slice()
+}
 
 //listens for a change from park dropdown
 eventHub.addEventListener("parkChosen", event => {
