@@ -1,4 +1,5 @@
 import {ParkSelect} from './ParkList.js'
+import defaultExport from '../Settings.js'
 
 //all parks will be added to this empty array
 let parks = [];
