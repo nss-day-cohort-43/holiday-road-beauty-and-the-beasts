@@ -1,10 +1,12 @@
-
+// import { parkInfoCopy } from '../parks/ParkPreview.js'
 const eventHub = document.querySelector("main")
 
 //variables to save the dropdown selections
 let park 
 let attraction
 let eatery
+
+let itineraries = []
 
 // an event listener to tell us when all 3 options have been chosen, 
 // if they have it generates a 'save itinerary' button
@@ -75,8 +77,8 @@ const dispatchStateChangeEvent = () => {
 }
 
 //creates a copy of te itineraries to use on other modules
-export const useItinerary = () => {
-    return itinerary.slice();
+export const useItineraries = () => {
+    return itineraries.slice();
 }
 
 // get request for the list of itineraries on the local json-server database
@@ -84,8 +86,11 @@ export const getItineraries = () => {
     return fetch('http://localhost:8088/Itineraries')
         .then(response => response.json())
         .then(parsedItinerary => {
-            console.log(parsedItinerary, "parsedItinerary")
-            let itineraries = parsedNotes
+            itineraries = parsedItinerary
             console.log("itineraries", itineraries)
         })
 }
+
+
+// const parkInfo = parkInfoCopy()
+// console.log(parkInfo)
