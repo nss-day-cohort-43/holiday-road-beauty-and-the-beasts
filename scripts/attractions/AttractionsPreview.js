@@ -32,6 +32,11 @@ eventHub.addEventListener("attractionChosen", event => {
     }
 })
 
+export const getSelectedAttraction =()=> {
+    let copiedObject = Object.assign({}, selectedAttraction);
+    return copiedObject
+}
+
 //listener for clicks on the details buton, adds more details to the preview card, 
 //then changes the button to a hide button which hides the aforementioned details 
 eventHub.addEventListener("click", event => {

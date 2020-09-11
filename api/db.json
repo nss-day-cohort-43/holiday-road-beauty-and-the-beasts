@@ -23,6 +23,30 @@
       "chosenAttraction": "5",
       "chosenEatery": "Louis' Lunch",
       "id": 4
+    },
+    {
+      "chosenPark": "95A86C84-F0CB-4493-8B7D-2369D1ED9884",
+      "chosenAttraction": "8",
+      "chosenEatery": "Hudson's Hamburgers",
+      "id": 5
+    },
+    {
+      "chosenPark": "E2A4E070-D68B-42D6-8353-4438ED2F43AB",
+      "chosenAttraction": "10",
+      "chosenEatery": "St. Elmo Steak House",
+      "id": 6
+    },
+    {
+      "chosenPark": "13E255FA-F68C-491C-828C-59E5B4FA2600",
+      "chosenAttraction": "7",
+      "chosenEatery": "H&H Soul Food",
+      "id": 7
+    },
+    {
+      "chosenPark": "5AD68231-8681-43F6-89B1-08E5AA4C7FE6",
+      "chosenAttraction": "6",
+      "chosenEatery": "Joe's Stone Crab",
+      "id": 8
     }
   ]
 }

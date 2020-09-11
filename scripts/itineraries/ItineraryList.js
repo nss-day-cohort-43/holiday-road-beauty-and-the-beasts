@@ -43,5 +43,3 @@ parkInfoCopy - use to acces park name
 
 */
 
-// const parkInfo = parkInfoCopy()
-// console.log(parkInfo)
