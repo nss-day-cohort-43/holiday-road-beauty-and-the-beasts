@@ -7,7 +7,7 @@ const eventHub = document.querySelector("main")
 
 eventHub.addEventListener("stateChosen", event => { 
         const stateToFind = event.detail.stateWanted
-        return fetch(`https://developer.nps.gov/api/v1/amenities?api_key=4CCbkNphNpJ3QSNIMKkkLeLl2DrSerPMI1iTBQl1`)
+        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=accessi&api_key=4CCbkNphNpJ3QSNIMKkkLeLl2DrSerPMI1iTBQl1`)
         .then(response => response.json()
         .then(
             parsedParks => {
