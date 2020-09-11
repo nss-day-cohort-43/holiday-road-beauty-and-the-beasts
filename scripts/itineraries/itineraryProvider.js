@@ -6,6 +6,7 @@ let park
 let attraction
 let eatery
 
+// a variable to save the array of itineraries
 let itineraries = []
 
 // an event listener to tell us when all 3 options have been chosen, 
@@ -90,7 +91,3 @@ export const getItineraries = () => {
             console.log("itineraries", itineraries)
         })
 }
-
-
-// const parkInfo = parkInfoCopy()
-// console.log(parkInfo)

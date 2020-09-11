@@ -1,4 +1,6 @@
 import {getSelectedAttraction} from '../attractions/AttractionsPreview.js'
+
+// a function that plugs in an Itinerary and makes html to display the saved itinerary
 export const ItineraryHTML = (Itinerary) => {
     getItineraryData()
     return `
@@ -12,10 +14,11 @@ export const ItineraryHTML = (Itinerary) => {
     </div>   
     `
 }
+// variables to store the currently selected park and attraction objects so that the name of them can be accessed for HTML
 let attractionObj
 let parkObj
-// const parkInfo = parkInfoCopy()
-// console.log(parkInfo)
+
+//a function to get copies of the currently selected park and attraction
 const getItineraryData= (Itinerary)=> {
     parkObj = parkInfoCopy()
     attractionObj = getSelectedAttraction()

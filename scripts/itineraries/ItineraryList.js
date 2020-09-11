@@ -1,45 +1,30 @@
 import { ItineraryHTML } from "./Itinerary.js"
 import { getItineraries, useItineraries } from "./itineraryProvider.js"
+
+//an eventHUb to catch custom events
 const eventHub = document.querySelector("main")
+
+//targets the place in the DOM where we want to place the list of itineraries
 const itineraryTarget = document.querySelector(".saved-itinerary")
 
+//a function to fetch the saved itineraries and render them to the DOM
 export const ItineraryList = () => {
     getItineraries()
     .then(useItineraries)
-    console.log()
     .then(render)
-
 }
 
+//a function to render an itinerayArray to the list of saved itineraries
 const render = (itineraryArray) => {
 
-    console.log(itineraryArray)
     let itineraryListHTML = itineraryArray.map(itinerary => {
         return ItineraryHTML(itinerary)
     })
-    console.log(itineraryListHTML)
     itineraryTarget.innerHTML = itineraryListHTML
 }
 
+//a custom event listener that renders the new itinerary when one is saved
 eventHub.addEventListener("itineraryStateChanged", () => {	
     const newItinerary = useItineraries()
     render(newItinerary)
 })
-
-
-
-
-///
-//
-//
-//
-// have yet to decide how I'm connecting the id's in the database to more information
-
-//maybe make the cards clickable and have a button that pulls the preview  of the saved itinerary back up
-
-/*
-parkInfoCopy - use to acces park name 
-"detailsClicked" - mori's custom event that creates park details use to create an accessability feature
-
-*/
-
