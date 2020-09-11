@@ -47,6 +47,12 @@
       "chosenAttraction": "6",
       "chosenEatery": "Joe's Stone Crab",
       "id": 8
+    },
+    {
+      "chosenPark": "5C51E54A-BCDA-4186-96C3-1B896C3CDFCB",
+      "chosenAttraction": "12",
+      "chosenEatery": "Hy's Steak House",
+      "id": 9
     }
   ]
 }

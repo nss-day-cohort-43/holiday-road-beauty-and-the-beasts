@@ -7,6 +7,8 @@ import { parkPreviewListener } from './parks/ParkPreview.js';
 import { mainListenerForEatery } from './eateries/EateryPreview.js';
 import {saveItinerary} from './itineraries/itineraryProvider.js'
 import { ItineraryList } from './itineraries/ItineraryList.js';
+import { listener } from './accessibility/AccessibilityProvider.js';
+
 
 // This is for the mainListener calls
 mainListenerForEatery();
