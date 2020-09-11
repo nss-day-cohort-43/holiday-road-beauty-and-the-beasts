@@ -9,7 +9,6 @@ import { weatherListener } from './weather/WeatherProvider.js';
 import { eateryPreviewListener } from './eateries/EateryPreview.js';
 import { saveItinerary } from './itineraries/itineraryProvider.js';
 
-
 // This is for the mainListener calls
 eateryPreviewListener();
 parkPreviewListener();
@@ -21,5 +20,5 @@ weatherListener();
 stateSelect();
 
 eateryDropdownRender();
-
+//creates a dropdown attractions menu
 AttractionSelect();
