@@ -22,9 +22,9 @@ const AttractionPreview = attraction => {
 */
 eventHub.addEventListener("attractionChosen", event => {
     if (event.detail.attractionId !== '0') {
-        const attractionId = parseInt(event.detail.attractionId)
+        const attractionId = event.detail.attractionId
         selectedAttraction = useAttractions().find(attraction => {
-            if (attraction.id === attractionId) {
+            if (attraction.name === attractionId) {
                 return true
             }
         })
