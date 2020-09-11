@@ -60,13 +60,24 @@ const renderParkPreview = (parkChosen) => {
     `
 }
 
+eventHub.addEventListener("click", event)
+
+
+
 //listens for detail button click and runs the rendering functions
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "parkDetails"){
-        renderParkDetails(parkArray)
-        renderParkAddress(parkArray)
+        const detailsClickedEvent = new CustomEvent("detailsClicked", {})
+        eventHub.dispatchEvent(detailsClickedEvent)
     }
 })
+
+eventHub.addEventListener("detailsClicked", event => {
+    renderParkDetails(parkArray)
+    renderParkAddress(parkArray)
+})
+
+
 
 //renders the details, except address
 const renderParkDetails = (parkChosen) => {
