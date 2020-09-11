@@ -1,3 +1,7 @@
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
 main {
 	border: dashed 1px red;
 	display: flex;
@@ -19,6 +23,22 @@ main {
 	padding: 5px;
 }
 
+.dropdown {
+	position: relative;
+	width: 200px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 7px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+	cursor: pointer;
+	outline: none;
+	font-weight: bold;
+}
+
+option {
+	font-weight: bold;
+}
 /* This is the end of the dropdown container styling */
 
 /*  */
@@ -58,6 +78,18 @@ main {
 	align-self: center;
 	margin: 5px;
 	padding: 5px;
+}
+
+button {
+	position: relative;
+	width: 100px;
+	margin: 0 auto;
+	padding: 7px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+	cursor: pointer;
+	outline: none;
 }
 
 /* This is the end of the preview container styling */
