@@ -1,6 +1,11 @@
 import { useParks } from "../parks/ParkProvider.js";
 
 let parks 
+let accesibleParks
+let accessibleRoomParksArray
+let accessibleSitesParksArray
+let accessibleRestroomsParksArray
+let accessibleParkParksArray
 // useParks() 
 
 const eventHub = document.querySelector("main")
@@ -13,6 +18,13 @@ eventHub.addEventListener("stateChosen", event => {
             parsedParks => {
                 parks = parsedParks
                 console.log("state chosen amenities fetch", parks)
+                accesibleParks = parks.data.forEach(array => {
+                    array[0]
+
+                })
+
+
+
                 parks.data.map(park => {
                     if (park.categories[0] === "Accessibility"){ 
                         let parkDropdown = document.querySelector(".park")
