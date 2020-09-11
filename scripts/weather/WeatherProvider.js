@@ -21,12 +21,10 @@ export const getWeather = () => {
                 forecast = parsedForecast
             }
         )
-        //insert function to display weather in .then
-        // .then()
 }
 
 export const useWeather = () => {
-    return forecast.slice()
+    return forecast
 }
 
 export const weatherListener = () => {}

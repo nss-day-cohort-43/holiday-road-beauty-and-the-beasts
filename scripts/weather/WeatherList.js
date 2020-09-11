@@ -2,11 +2,11 @@ import {useWeather} from "./WeatherProvider.js"
 
 export const weatherList = () => {
     
-    renderWeather()
 }
 
 const weatherTarget = document.querySelector(".preview-park")
 
+//edit this funtion to use weather from other functions
 const renderWeather = () => {
     weatherTarget.innerHTML += `
         <div class="day1"></div>
@@ -17,34 +17,63 @@ const renderWeather = () => {
     `
 }
 
-//I need to parse through everything in useWeather() to get useful data
-//and conversions.
-//[laughs in chemical engineering background]
-
-//parse through 8 objects at a time
-//(there are 8 for each day)
-//find the highest temp_max
-//and lowest temp_min
-//then find which weather.description occurs most often
-//return a high, a low, and description
-
-//weather.main will help with corresponding icons to weather
-
-const usefulWeather = () => {
+const tempHighLow = () => {
     const hugeWeatherArray = useWeather()
-    for(let i = 1; i <= 8; i++){
+    let minArrayKelvin = []
+    let maxArrayKelvin = []
+    let order = 0
+    for(let day = 0; day < 5; day++){
+        let min = hugeWeatherArray.list[order].main.temp_min
+        let max = hugeWeatherArray.list[order].main.temp_max
+        for(let i = 0; i < 8; i++){
+            if (hugeWeatherArray.list[order].main.temp_min <= min) {
+                min = hugeWeatherArray.list[order].main.temp_min
+            }
+            if (hugeWeatherArray.list[order].main.temp_max >= max) {
+                max = hugeWeatherArray.list[order].main.temp_min
+            }
+            order++
+        }
+        const minF = Math.round((min - 273.15)*(9/5) + 32)
+        const maxF = Math.round((max - 273.15)*(9/5) + 32)
+        minArrayKelvin.push(minF)
+        maxArrayKelvin.push(maxF)
+    }
+    const dailyHiLo = {
+        hi: maxArrayKelvin,
+        lo: minArrayKelvin
+    }
+    return dailyHiLo
+}
 
+//edit this function to return weather.main or weather.description
+//find which occurs most often in each 8
+//weather.main can help with icons
+const physicalWeather = () => {
+    const hugeWeatherArray = useWeather()
+    let minArrayKelvin = []
+    let maxArrayKelvin = []
+    let order = 0
+    for(let day = 0; day < 5; day++){
+        let min = hugeWeatherArray.list[order].main.temp_min
+        let max = hugeWeatherArray.list[order].main.temp_max
+        for(let i = 0; i < 8; i++){
+            if (hugeWeatherArray.list[order].main.temp_min <= min) {
+                min = hugeWeatherArray.list[order].main.temp_min
+            }
+            if (hugeWeatherArray.list[order].main.temp_max >= max) {
+                max = hugeWeatherArray.list[order].main.temp_min
+            }
+            order++
+        }
+        const minF = Math.round((min - 273.15)*(9/5) + 32)
+        const maxF = Math.round((max - 273.15)*(9/5) + 32)
+        minArrayKelvin.push(minF)
+        maxArrayKelvin.push(maxF)
     }
-    for(let i = 9; i <= 16; i++){
-        
+    const dailyHiLo = {
+        hi: maxArrayKelvin,
+        lo: minArrayKelvin
     }
-    for(let i = 17; i <= 24; i++){
-        
-    }
-    for(let i = 25; i <= 32; i++){
-        
-    }
-    for(let i = 33; i <= 40; i++){
-        
-    }
+    return dailyHiLo
 }
