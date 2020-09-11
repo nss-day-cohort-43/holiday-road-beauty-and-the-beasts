@@ -19,7 +19,7 @@ const render = (itineraryArray) => {
 
     let itineraryListHTML = itineraryArray.map(itinerary => {
         return ItineraryHTML(itinerary)
-    })
+    }).join("")
     itineraryTarget.innerHTML = itineraryListHTML
 }
 

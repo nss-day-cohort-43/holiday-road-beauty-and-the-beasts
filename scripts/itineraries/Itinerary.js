@@ -1,4 +1,5 @@
 import {getSelectedAttraction} from '../attractions/AttractionsPreview.js'
+import { parkInfoCopy } from '../parks/ParkPreview.js'
 
 // a function that plugs in an Itinerary and makes html to display the saved itinerary
 export const ItineraryHTML = (Itinerary) => {
@@ -7,7 +8,7 @@ export const ItineraryHTML = (Itinerary) => {
     <div class="itinerary-card">
         <h3>Itinerary #${Itinerary.id}
         <ul>
-            <li>${parkObj.name}</li>
+            <li>${parkObj[0].fullName}</li>
             <li>${attractionObj.name}</li>
             <li>${Itinerary.chosenEatery}</li>
         </ul>
@@ -22,5 +23,4 @@ let parkObj
 const getItineraryData= (Itinerary)=> {
     parkObj = parkInfoCopy()
     attractionObj = getSelectedAttraction()
-    console.log(attractionObj)
 }
