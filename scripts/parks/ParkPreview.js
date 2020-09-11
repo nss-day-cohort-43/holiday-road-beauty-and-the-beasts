@@ -1,4 +1,6 @@
 import {useParks} from './ParkProvider.js'
+import {getWeather} from '../weather/WeatherProvider.js'
+import { weatherList } from '../weather/WeatherList.js'
 
 //listener doesn't work without a connection to main
 export const parkPreviewListener = () => {}
@@ -10,6 +12,9 @@ const parkPreviewTarget = document.querySelector(".preview-park")
 //holds parks that was chosen after event
 let parkArray = []
 
+export const parkInfoCopy = () => {
+    return parkArray.slice()
+}
 
 //listens for a change from park dropdown
 eventHub.addEventListener("parkChosen", event => {
@@ -30,6 +35,10 @@ eventHub.addEventListener("parkChosen", event => {
         parkArray = matchingPark
         //renders HTML of matching park
         renderParkPreview(matchingPark)
+        getWeather()
+        .then(()=>{
+            weatherList()
+        })
     }
 })
 
@@ -51,13 +60,24 @@ const renderParkPreview = (parkChosen) => {
     `
 }
 
+eventHub.addEventListener("click", event)
+
+
+
 //listens for detail button click and runs the rendering functions
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "parkDetails"){
-        renderParkDetails(parkArray)
-        renderParkAddress(parkArray)
+        const detailsClickedEvent = new CustomEvent("detailsClicked", {})
+        eventHub.dispatchEvent(detailsClickedEvent)
     }
 })
+
+eventHub.addEventListener("detailsClicked", event => {
+    renderParkDetails(parkArray)
+    renderParkAddress(parkArray)
+})
+
+
 
 //renders the details, except address
 const renderParkDetails = (parkChosen) => {
