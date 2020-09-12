@@ -53,7 +53,6 @@ const renderParkPreview = (parkChosen) => {
                     return `<div class="park-name">${parkObj.name}</div>
                         <a href="${parkObj.url}" target="_blank" class="park-site">Park Website</a>
                         <div class="location">${parkObj.addresses[1].city}, ${parkObj.addresses[1].stateCode}</div>
-                        
                     `
                 })
             }

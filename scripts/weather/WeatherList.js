@@ -14,12 +14,15 @@ const renderWeather = () => {
     const weather = weatherEmoji()
     const temp = tempHighLow()
     const dates = weatherDates()
-    // debugger
+    let allWeather = ""
+    const weatherInfo = () => {
     for(let i= 0; i < 5; i++){
-        weatherTarget.innerHTML += `
+        allWeather += `
             <div class="day${i}">${dates[i]} ${weather[i]} Hi: ${temp.hi[i]}°F Lo: ${temp.lo[i]}°F</div>
         `
-    }
+    }}
+    weatherInfo()
+    weatherTarget.innerHTML = allWeather
 }
 
 //gets the high and low temperature each day
