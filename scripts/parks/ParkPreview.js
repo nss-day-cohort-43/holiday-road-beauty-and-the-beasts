@@ -8,7 +8,9 @@ export const parkPreviewListener = () => {}
 //defines eventHub for listener
 const eventHub = document.querySelector("main")
 //defines where park info will be sent on page
-const parkPreviewTarget = document.querySelector(".preview-park")
+const parkPreviewTarget = document.querySelector(".park-card")
+//defines where detail info will be sent on page
+const detailPreviewTarget = document.querySelector(".park-detail-container")
 //holds parks that was chosen after event
 let parkArray = []
 
@@ -35,13 +37,17 @@ eventHub.addEventListener("parkChosen", event => {
         parkArray = matchingPark
         //renders HTML of matching park
         renderParkPreview(matchingPark)
+        getWeather()
+        .then(()=>{
+            weatherList()
+        })
     }
 })
+
 
 //creates HTML for park
 const renderParkPreview = (parkChosen) => {
     parkPreviewTarget.innerHTML = `
-        <div class="park-card">
             ${
                 parkChosen.map(parkObj => {
                     return `<div class="park-name">${parkObj.name}</div>
@@ -51,15 +57,9 @@ const renderParkPreview = (parkChosen) => {
                     `
                 })
             }
-            <div class="weather-container"></div>
-            <button id="parkDetails">Details</button>
-            <div class="park-detail-container"></div>
-        </div>
+        
     `
-    getWeather()
-        .then(()=>{
-            weatherList()
-        })
+    detailPreviewTarget.innerHTML = `<button id="parkDetails">Details</button>`
 }
 
 
@@ -82,7 +82,7 @@ eventHub.addEventListener("detailsClicked", event => {
 const renderParkDetails = (parkChosen) => {
     //defines where details of park will go on page
     const detailsTarget = document.querySelector(".park-detail-container")
-    detailsTarget.innerHTML = `
+    detailsTarget.innerHTML += `
     ${
         parkChosen.map(parkObj => {
             return `
@@ -127,7 +127,7 @@ eventHub.addEventListener("click", event => {
     } else if (event.target.id === "parkDetails" && event.target.textContent === "Hide Details") {
         document.getElementById("parkDetails").textContent = "Details"
         const detailContainerTarget = document.querySelector(".park-detail-container")
-        detailContainerTarget.innerHTML = ""
+        detailContainerTarget.innerHTML = `<button id="parkDetails">Details</button>`
     }
 })
 

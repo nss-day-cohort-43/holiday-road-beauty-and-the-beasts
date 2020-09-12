@@ -7,7 +7,7 @@ export const weatherList = () => {
 
 //defines where weather info will go on HTML
 //reads as null
-const weatherTarget = document.querySelector(".park-card")
+const weatherTarget = document.querySelector(".weather-container")
 
 //defines the HTML for the relevant weather data
 const renderWeather = () => {
