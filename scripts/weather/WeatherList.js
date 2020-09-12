@@ -6,16 +6,18 @@ export const weatherList = () => {
 }
 
 //defines where weather info will go on HTML
-const weatherTarget = document.querySelector(".preview-park")
+//reads as null
+const weatherTarget = document.querySelector(".park-card")
 
 //defines the HTML for the relevant weather data
 const renderWeather = () => {
-    const weather = physicalWeather()
+    const weather = weatherEmoji()
     const temp = tempHighLow()
     const dates = weatherDates()
+    // debugger
     for(let i= 0; i < 5; i++){
         weatherTarget.innerHTML += `
-            <div class="day${i}">${dates[i]} ${weather[i]} Hi: ${temp.hi[i]} Lo: ${temp.lo[i]}</div>
+            <div class="day${i}">${dates[i]} ${weather[i]} Hi: ${temp.hi[i]}°F Lo: ${temp.lo[i]}°F</div>
         `
     }
 }
@@ -74,6 +76,7 @@ const physicalWeather = () => {
         const mostWeather = mode(dailyWeather)
         weeklyWeather.push(mostWeather)
     }
+    console.log(weeklyWeather)
     return weeklyWeather
 }
 
@@ -114,4 +117,21 @@ const weatherDates = () => {
         days.push(date)
     }
     return days
+}
+
+const weatherEmoji = () => {
+    const weatherArray = physicalWeather()
+    let weatherEmoji = []
+    for(const weather of weatherArray) {
+        if(weather === "Clear"){
+            weatherEmoji.push("🌞")
+        }
+        if(weather === "Rain"){
+            weatherEmoji.push("☔")
+        }
+        if(weather === "Clouds") {
+            weatherEmoji.push("⛅")
+        }
+    }
+    return weatherEmoji
 }
