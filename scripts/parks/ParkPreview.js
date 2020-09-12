@@ -50,9 +50,8 @@ const renderParkPreview = (parkChosen) => {
     parkPreviewTarget.innerHTML = `
             ${
                 parkChosen.map(parkObj => {
-                    return `<div class="park-name">${parkObj.name}</div>
+                    return `<div class="park-name">${parkObj.fullName}</div>
                         <a href="${parkObj.url}" target="_blank" class="park-site">Park Website</a>
-                        <div class="location">${parkObj.addresses[1].city}, ${parkObj.addresses[1].stateCode}</div>
                     `
                 })
             }
@@ -89,7 +88,6 @@ const renderParkDetails = (parkChosen) => {
                 <div class="park-address">${parkObj.addresses[0].line1}</div>
                 <div class="location-details">${parkObj.addresses[0].city}, ${parkObj.addresses[0].stateCode} ${parkObj.addresses[0].postalCode}</div>
                 <div class="park-phone">${parkObj.contacts.phoneNumbers[0].phoneNumber}</div>
-                <div class="park-fee">${parkObj.entranceFees[0].description}</div><br>
                 <div class="park-hours">${parkObj.operatingHours[0].description}<br>
                 </div>
             `

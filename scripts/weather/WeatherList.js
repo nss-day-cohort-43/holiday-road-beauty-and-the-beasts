@@ -79,7 +79,6 @@ const physicalWeather = () => {
         const mostWeather = mode(dailyWeather)
         weeklyWeather.push(mostWeather)
     }
-    console.log(weeklyWeather)
     return weeklyWeather
 }
 
