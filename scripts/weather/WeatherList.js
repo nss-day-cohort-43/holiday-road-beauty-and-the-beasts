@@ -121,6 +121,7 @@ const weatherDates = () => {
     return days
 }
 
+//converts weather decriptions into emoji
 const weatherEmoji = () => {
     const weatherArray = physicalWeather()
     let weatherEmoji = []

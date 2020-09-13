@@ -31,12 +31,13 @@ eventHub.addEventListener("stateChosen", event => {
     }
 })
 
-
+//stores accessibility data
 let parkAccessibility 
 
-//reads ass null
+//defines where accessibility HTML will be rendered
 const parkAccessTarget = document.querySelector(".park-detail-container")
 
+//listens for detail button clicked to fetch and render accessibility details
 eventHub.addEventListener("detailsClicked", event => {
         const parkChosen = parkInfoCopy()
         const officialParkCode = parkChosen[0].parkCode
@@ -51,6 +52,8 @@ eventHub.addEventListener("detailsClicked", event => {
     )
 })
 
+//defines park accessibility details
+//code will be refactored to add specific place name details
 const renderParkAccess = () => {
     parkAccessTarget.innerHTML += `<div class="accessibility-detail"></div>`
     const accessDetailTarget = document.querySelector(".accessibility-detail")

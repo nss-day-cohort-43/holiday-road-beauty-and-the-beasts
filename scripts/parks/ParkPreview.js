@@ -14,6 +14,7 @@ const detailPreviewTarget = document.querySelector(".park-detail-container")
 //holds parks that was chosen after event
 let parkArray = []
 
+//allows other modules to use the selected park data
 export const parkInfoCopy = () => {
     return parkArray.slice()
 }
@@ -69,6 +70,7 @@ eventHub.addEventListener("click", clickEvent => {
     }
 })
 
+//listens for details clicked to render details
 eventHub.addEventListener("detailsClicked", event => {
     renderParkDetails(parkArray)
     renderParkAddress(parkArray)
@@ -119,6 +121,8 @@ const renderParkAddress = (parkChosen) => {
     
 }
 
+
+//listens for details click to change to hide details button
 eventHub.addEventListener("click", event => {
     if (event.target.id === "parkDetails" && event.target.textContent === "Details") {
         document.getElementById("parkDetails").textContent = "Hide Details"
