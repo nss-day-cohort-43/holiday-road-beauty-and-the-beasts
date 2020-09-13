@@ -114,3 +114,43 @@ const renderParkAccess = () => {
     }
     accessDetailTarget.innerHTML += `<div>Please Call Ahead for More Accessibility Info.</div>`
 }
+
+let parkSignal
+
+eventHub.addEventListener("detailsClicked", event => {
+    const parkChosen = parkInfoCopy()
+    const officialParkCode = parkChosen[0].parkCode
+    return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces?parkCode=${officialParkCode}&q=cellular&api_key=${defaultExport.npsKey}`)
+    .then(response => response.json()
+    .then(
+        parsedPark => {
+            parkSignal = parsedPark
+            renderParkSignal()
+        }
+    ))
+})
+
+const renderParkSignal = () => {
+    parkAccessTarget.innerHTML += `<div class="cell-detail"></div>`
+    const cellDetailTarget = document.querySelector(".cell-detail")
+    for(const object of parkSignal.data){
+        for(const object2 of object){
+            cellDetailTarget.innerHTML += `
+                <div class="access-type">Cell Service Available:</div>
+            `
+            for(const park of object2.parks){
+                for(const place of park.places){
+                    cellDetailTarget.innerHTML += `
+                        <div>${place.title}</div>
+                    `
+                }
+            }
+        }
+            
+    }
+    if(cellDetailTarget.innerHTML === ""){
+        cellDetailTarget.innerHTML += `<div>No Accessibility Info On File.</div>`
+    }
+    cellDetailTarget.innerHTML += `<div>Please Call Ahead for More Cell Service Info.</div>`
+}
+    
