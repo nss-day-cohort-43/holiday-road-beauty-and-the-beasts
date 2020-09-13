@@ -61,7 +61,7 @@ const render = (parkCollection) => {
             <option value="0">Choose a Park!</option>
             ${
                 parkCollection.map(parkObj => {
-                    return `<option value="${parkObj.id}">${parkObj.fullName}</option>`
+                    return `<option value="${parkObj.fullName}">${parkObj.fullName}</option>`
                 })
 
             }
