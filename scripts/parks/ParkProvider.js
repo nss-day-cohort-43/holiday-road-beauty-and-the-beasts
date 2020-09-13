@@ -115,8 +115,10 @@ const renderParkAccess = () => {
     accessDetailTarget.innerHTML += `<div>Please Call Ahead for More Accessibility Info.</div>`
 }
 
+//will store signal info
 let parkSignal
 
+//listens for detail button click to fetch and render cell info
 eventHub.addEventListener("detailsClicked", event => {
     const parkChosen = parkInfoCopy()
     const officialParkCode = parkChosen[0].parkCode
@@ -130,6 +132,7 @@ eventHub.addEventListener("detailsClicked", event => {
     ))
 })
 
+//parses through signal info data to render what places have cell service
 const renderParkSignal = () => {
     parkAccessTarget.innerHTML += `<div class="cell-detail"></div>`
     const cellDetailTarget = document.querySelector(".cell-detail")
@@ -148,6 +151,7 @@ const renderParkSignal = () => {
         }
             
     }
+    //displays no info on file if api returns empty
     if(cellDetailTarget.innerHTML === ""){
         cellDetailTarget.innerHTML += `<div>No Accessibility Info On File.</div>`
     }
