@@ -66,7 +66,7 @@ const renderParkAccess = () => {
                 for(const park of object2.parks){
                     for(const place of park.places){
                     accessDetailTarget.innerHTML += `
-                        <div>${place.title}</div>
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
                     `
                     }
                 }
@@ -78,7 +78,7 @@ const renderParkAccess = () => {
                 for(const park of object2.parks){
                     for(const place of park.places){
                     accessDetailTarget.innerHTML += `
-                        <div>${place.title}</div>
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
                     `
                     }
                 }
@@ -90,7 +90,7 @@ const renderParkAccess = () => {
                 for(const park of object2.parks){
                     for(const place of park.places){
                     accessDetailTarget.innerHTML += `
-                        <div>${place.title}</div>
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
                     `
                     }
                 }
@@ -102,7 +102,7 @@ const renderParkAccess = () => {
                 for(const park of object2.parks){
                     for(const place of park.places){
                     accessDetailTarget.innerHTML += `
-                        <div>${place.title}</div>
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
                     `
                     }
                 }
