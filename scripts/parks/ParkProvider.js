@@ -57,41 +57,60 @@ eventHub.addEventListener("detailsClicked", event => {
 const renderParkAccess = () => {
     parkAccessTarget.innerHTML += `<div class="accessibility-detail"></div>`
     const accessDetailTarget = document.querySelector(".accessibility-detail")
-    let restroomAccess = ""
-    let wheelchairAccess = ""
-    let roomAccess = ""
-    let siteAccess = ""
     for(const object of parkAccessibility.data){
         for(const object2 of object){
-        if(object2.name === "Restroom - Accessible"){
-            restroomAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Accessible Restrooms</div>`
-        }
-        if(object2.name === "Wheelchair Accessible"){
-            wheelchairAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Wheelchair Accessible</div>`
-        }
-        if(object2.name === "Accessible Rooms"){
-            roomAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Accessible Rooms</div>`
-        }
-        if(object2.name === "Accessible Sites"){
-            siteAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Accessible Sites</div>`
-        }
+            if(object2.name === "Restroom - Accessible"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Accessible Restrooms</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <div>${place.title}</div>
+                    `
+                    }
+                }
+            }
+            if(object2.name === "Wheelchair Accessible"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Wheelchair Access</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <div>${place.title}</div>
+                    `
+                    }
+                }
+            }
+            if(object2.name === "Accessible Rooms"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Accessible Rooms</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <div>${place.title}</div>
+                    `
+                    }
+                }
+            }
+            if(object2.name === "Accessible Sites"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Accessible Sites</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <div>${place.title}</div>
+                    `
+                    }
+                }
+            }
         }
     }
-    if(restroomAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Accessible Restrooms</div>`
-    }
-    if(wheelchairAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Wheelchair Accessible</div>`
-    }
-    if(roomAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Accessible Rooms</div>`
-    }
-    if(siteAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Accessible Sites</div>`
+    if(accessDetailTarget.innerHTML === ""){
+        accessDetailTarget.innerHTML += `<div>No Accessibility Info On File.</div>`
     }
     accessDetailTarget.innerHTML += `<div>Please Call Ahead for More Accessibility Info.</div>`
 }
