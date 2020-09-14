@@ -8,6 +8,7 @@ import { ItineraryList } from './itineraries/ItineraryList.js';
 import { weatherListener } from './weather/WeatherProvider.js';
 import { eateryPreviewListener } from './eateries/EateryPreview.js';
 import { saveItinerary } from './itineraries/itineraryProvider.js';
+import {accessListener} from './parks/AccessibilitySelect.js'
 
 // This is for the mainListener calls
 eateryPreviewListener();
@@ -15,6 +16,7 @@ parkPreviewListener();
 attractionsPreviewListener();
 parkListener();
 weatherListener();
+accessListener();
 // This is the end of the mainListener calls
 
 stateSelect();
