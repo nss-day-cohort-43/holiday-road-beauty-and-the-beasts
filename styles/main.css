@@ -3,7 +3,6 @@ body {
 }
 
 main {
-	border: dashed 1px red;
 	display: flex;
 	flex-direction: row;
 }
@@ -12,7 +11,6 @@ main {
 
 .dropdown-container {
 	order: 0;
-	border: dashed 1px green;
 	flex-basis: 30%;
 	margin: 5px;
 	padding: 5px;
@@ -47,7 +45,6 @@ option {
 
 .itenerary-preview {
 	order: 1;
-	border: dashed 1px blue;
 	flex-basis: 30%;
 	display: flex;
 	flex-direction: column;
@@ -55,25 +52,21 @@ option {
 	padding: 5px;
 }
 .preview-attraction {
-	border: dashed 1px chartreuse;
 	order: 0;
 	margin: 5px;
 	padding: 5px;
 }
 .preview-park {
-	border: dashed 1px brown;
 	order: 2;
 	margin: 5px;
 	padding: 5px;
 }
 .preview-eatery {
-	border: dashed 1px palevioletred;
 	order: 1;
 	margin: 5px;
 	padding: 5px;
 }
 #saveBtnContainer {
-	border: dashed 1px orangered;
 	order: 3;
 	align-self: center;
 	margin: 5px;
@@ -101,7 +94,6 @@ This bar is the right most part of the part of the website
 */
 
 .saved-itenerary {
-	border: dashed 1px fuchsia;
 	order: 2;
 	flex-basis: 30%;
 	margin: 5px;
