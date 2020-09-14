@@ -61,6 +61,7 @@ const renderAccessOption = () => {
             <input type="checkbox" value="mobility"> 
             <label for="mobility">Mobility</label>
         </div>
+        <div class="access-details"></div>
     `
 }
 
@@ -83,9 +84,11 @@ let parkAccessibility
 
 //fetches accessibility info for relevant park
 eventHub.addEventListener("accessChosen", (event) => {
+    const type = event.detail.accessWanted
+    const _selector = document.querySelector(`input[value=${type}]`)
+    if(_selector.checked){
     const parkChosen = parkInfoCopy()
     const officialParkCode = parkChosen[0].parkCode;
-    const type = event.detail.accessWanted
 	return fetch(
 		`https://developer.nps.gov/api/v1/amenities/parksplaces?parkCode=${officialParkCode}&api_key=${defaultExport.npsKey}`
 	).then((response) =>
@@ -93,11 +96,20 @@ eventHub.addEventListener("accessChosen", (event) => {
             parkAccessibility = parsedPark;
             renderAccessDetails(type)
 		})
-	);
+    )}
+    else{
+        // debugger
+        const eraseContent = document.querySelector(`#${type}`)
+        eraseContent.innerHTML = ""
+    }
 })
 
 //defines html for each access type
 const renderAccessDetails = (type) => {
+    const accessDetailsTarget = document.querySelector(".access-details")
+    if(accessDetailsTarget.innerHTML === ""){
+    accessDetailsTarget.innerHTML = `<div class="details-card" id="${type}"></div>`}
+    else{accessDetailsTarget.innerHTML += `<div class="details-card" id="${type}"></div>`}
     //iterates through categories of all accessibility types
     for(const obj of allAccessibility){
         //verifies type chosen to use
@@ -109,14 +121,15 @@ const renderAccessDetails = (type) => {
                 for(const realAccess of parkToSearch){
                     //grabs only relevant array containing specific access type
                     if(realAccess[0].name === specific){
-                        accessSelectTarget.innerHTML += `
+                        const specificDetailsTarget = document.querySelector(".details-card")
+                        specificDetailsTarget.innerHTML += `
                             <div class="access-type">${realAccess[0].name}</div>
                         `;
                         //iterates through the park array
 				        for (const park of realAccess[0].parks) {
                             //iterates through all places within park and defines HTML with link
                             for (const place of park.places) {
-                                accessSelectTarget.innerHTML += `
+                                specificDetailsTarget.innerHTML += `
                                 <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
                                 `;
                             }
