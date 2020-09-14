@@ -18,16 +18,16 @@ export const AttractionDetailsHTML = (attraction) => {
 // and creates HTML to reflect that
 
 const amenetiesLogic = (attraction) => {
-        let amenetiesHTML = ``
+        let amenitiesHTML = ``
         if (attraction.ameneties.souvenirs === true) {
-        amenetiesHTML += `<div>✔️ Giftshop</div>`
+            amenitiesHTML += `<div>✔️ Giftshop</div>`
     } else {
-        amenetiesHTML +=`<div>❌ Giftshop</div>`
+        amenitiesHTML +=`<div>❌ Giftshop</div>`
     }
     if (attraction.ameneties.restrooms === true) {
-        amenetiesHTML += `<div>✔️Restrooms</div>`
+        amenitiesHTML += `<div>✔️Restrooms</div>`
     } else {
-        amenetiesHTML += `<div>❌ Restrooms</div>`
+        amenitiesHTML += `<div>❌ Restrooms</div>`
     }
- return amenetiesHTML
+ return amenitiesHTML
 }

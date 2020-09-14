@@ -25,7 +25,7 @@ eventHub.addEventListener("parkChosen", event => {
         const parkID = event.detail.parkIdChosen
         //filters all parks for JUST the chosen park
         const matchingPark = allParks.filter(parkObj => {
-            if (parkObj.id === parkID){
+            if (parkObj.fullName === parkID){
                 return true
             } else {
                 return false

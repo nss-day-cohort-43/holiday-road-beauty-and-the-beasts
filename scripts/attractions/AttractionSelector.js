@@ -12,7 +12,7 @@ const render = attractionCollection => {
             <option value="0">Choose an attraction!</option>
             ${
                 attractionCollection.map(attractionObj => {
-                    return `<option value=${attractionObj.id}>${attractionObj.name}</option>`
+                    return `<option value="${attractionObj.name}">${attractionObj.name}</option>`
                 })
             }                      
     `
