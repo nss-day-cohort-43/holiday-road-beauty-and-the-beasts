@@ -31,88 +31,9 @@ eventHub.addEventListener('stateChosen', (event) => {
 	}
 });
 
-//stores accessibility data
-let parkAccessibility;
 
-//defines where accessibility HTML will be rendered
 const parkAccessTarget = document.querySelector('.park-detail-container');
 
-//listens for detail button clicked to fetch and render accessibility details
-eventHub.addEventListener('detailsClicked', (event) => {
-	const parkChosen = parkInfoCopy();
-	const officialParkCode = parkChosen[0].parkCode;
-	return fetch(
-		`https://developer.nps.gov/api/v1/amenities/parksplaces?parkCode=${officialParkCode}&q=accessi&api_key=${defaultExport.npsKey}`
-	).then((response) =>
-		response.json().then((parsedPark) => {
-			parkAccessibility = parsedPark;
-			renderParkAccess();
-		})
-	);
-});
-
-//defines park accessibility details
-//code will be refactored to add specific place name details
-const renderParkAccess = () => {
-	parkAccessTarget.innerHTML += `<div class="accessibility-detail"></div>`;
-	const accessDetailTarget = document.querySelector('.accessibility-detail');
-	for (const object of parkAccessibility.data) {
-		for (const object2 of object) {
-			if (object2.name === 'Restroom - Accessible') {
-				accessDetailTarget.innerHTML += `
-                    <div class="access-type">Places with Accessible Restrooms</div>
-                `;
-				for (const park of object2.parks) {
-					for (const place of park.places) {
-						accessDetailTarget.innerHTML += `
-                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
-                    `;
-					}
-				}
-			}
-			if (object2.name === 'Wheelchair Accessible') {
-				accessDetailTarget.innerHTML += `
-                    <div class="access-type">Places with Wheelchair Access</div>
-                `;
-				for (const park of object2.parks) {
-					for (const place of park.places) {
-						accessDetailTarget.innerHTML += `
-                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
-                    `;
-					}
-				}
-			}
-			if (object2.name === 'Accessible Rooms') {
-				accessDetailTarget.innerHTML += `
-                    <div class="access-type">Places with Accessible Rooms</div>
-                `;
-				for (const park of object2.parks) {
-					for (const place of park.places) {
-						accessDetailTarget.innerHTML += `
-                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
-                    `;
-					}
-				}
-			}
-			if (object2.name === 'Accessible Sites') {
-				accessDetailTarget.innerHTML += `
-                    <div class="access-type">Places with Accessible Sites</div>
-                `;
-				for (const park of object2.parks) {
-					for (const place of park.places) {
-						accessDetailTarget.innerHTML += `
-                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
-                    `;
-					}
-				}
-			}
-		}
-	}
-	if (accessDetailTarget.innerHTML === '') {
-		accessDetailTarget.innerHTML += `<div>No Accessibility Info On File.</div>`;
-	}
-	accessDetailTarget.innerHTML += `<div>Please Call Ahead for More Accessibility Info.</div>`;
-};
 
 //will store signal info
 let parkSignal;
