@@ -88,6 +88,5 @@ export const getItineraries = () => {
         .then(response => response.json())
         .then(parsedItinerary => {
             itineraries = parsedItinerary
-            console.log("itineraries", itineraries)
         })
 }

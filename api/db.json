@@ -1,58 +1,22 @@
 {
   "itineraries": [
     {
-      "chosenPark": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488",
-      "chosenAttraction": "12",
-      "chosenEatery": "St. Elmo Steak House",
+      "chosenPark": "Indiana Dunes National Park",
+      "chosenAttraction": "Big White Shirt",
+      "chosenEatery": "Hudson's Hamburgers",
       "id": 1
     },
     {
-      "chosenPark": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488",
-      "chosenAttraction": "12",
-      "chosenEatery": "St. Elmo Steak House",
+      "chosenPark": "Fort Frederica National Monument",
+      "chosenAttraction": "Big White Shirt",
+      "chosenEatery": "Buckhorn Exchange",
       "id": 2
     },
     {
-      "chosenPark": "9463E25C-7342-4A34-9537-4A6DA74B2B06",
-      "chosenAttraction": "7",
+      "chosenPark": "Stones River National Battlefield",
+      "chosenAttraction": "First Kiss Spot of the Obamas",
       "chosenEatery": "Deer Park Tavern",
       "id": 3
-    },
-    {
-      "chosenPark": "07A92FEB-682E-4895-8070-3323BC6F9EF7",
-      "chosenAttraction": "5",
-      "chosenEatery": "Louis' Lunch",
-      "id": 4
-    },
-    {
-      "chosenPark": "95A86C84-F0CB-4493-8B7D-2369D1ED9884",
-      "chosenAttraction": "8",
-      "chosenEatery": "Hudson's Hamburgers",
-      "id": 5
-    },
-    {
-      "chosenPark": "E2A4E070-D68B-42D6-8353-4438ED2F43AB",
-      "chosenAttraction": "10",
-      "chosenEatery": "St. Elmo Steak House",
-      "id": 6
-    },
-    {
-      "chosenPark": "13E255FA-F68C-491C-828C-59E5B4FA2600",
-      "chosenAttraction": "7",
-      "chosenEatery": "H&H Soul Food",
-      "id": 7
-    },
-    {
-      "chosenPark": "5AD68231-8681-43F6-89B1-08E5AA4C7FE6",
-      "chosenAttraction": "6",
-      "chosenEatery": "Joe's Stone Crab",
-      "id": 8
-    },
-    {
-      "chosenPark": "5C51E54A-BCDA-4186-96C3-1B896C3CDFCB",
-      "chosenAttraction": "12",
-      "chosenEatery": "Hy's Steak House",
-      "id": 9
     }
   ]
 }
