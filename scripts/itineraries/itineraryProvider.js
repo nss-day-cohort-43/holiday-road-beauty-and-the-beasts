@@ -10,28 +10,31 @@ let eatery
 let itineraries = []
 
 // an event listener to tell us when all 3 options have been chosen, 
-// if they have it generates a 'save itinerary' button
-// button will disappear if you return a dropdown to zerp\o
+// if they have it will activate the save itinerary button
+// button will deactive once itin is saved or if you return a dropdown to zero
 eventHub.addEventListener ("change", event => {
     
     const selectedPark = document.querySelector("#parkSelect")
     const selectedEatery = document.querySelector("#eaterySelector")
     const selectedAttraction = document.querySelector("#attractionSelect")
-    const saveBtnContainer = document.getElementById("saveBtnContainer")
-
-    if (selectedPark.value !== "0" &&
-     selectedEatery.value !== "0" && 
-     selectedAttraction.value !== "0") {
-         saveBtnContainer.innerHTML = `<button type="button" id="saveBtn">Save Itinerary</button>`
-        } else {
-            saveBtnContainer.innerHTML = ""
-        }
+    const saveBtn = document.getElementById("saveBtn")
+    if (selectedPark) {
+        if (selectedPark.value !== "0" &&
+        selectedEatery.value !== "0" && 
+        selectedAttraction.value !== "0") {
+                saveBtn.classList.remove("disabled")
+            } else {
+                if (!saveBtn.classList.contains("disabled"))
+                saveBtn.classList.add("disabled")
+            }
+    }
     } )
     
 // an event listener that catches when someone clicks the save button and calls the saveItineray function
     eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id === "saveBtn") {
+        if (clickEvent.target.id === "saveBtn" && !saveBtn.classList.contains("disabled")) {
             saveItinerary()
+            saveBtn.classList.add("disabled")
         }
     })
 
