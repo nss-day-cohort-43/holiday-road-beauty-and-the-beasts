@@ -57,41 +57,104 @@ eventHub.addEventListener("detailsClicked", event => {
 const renderParkAccess = () => {
     parkAccessTarget.innerHTML += `<div class="accessibility-detail"></div>`
     const accessDetailTarget = document.querySelector(".accessibility-detail")
-    let restroomAccess = ""
-    let wheelchairAccess = ""
-    let roomAccess = ""
-    let siteAccess = ""
     for(const object of parkAccessibility.data){
         for(const object2 of object){
-        if(object2.name === "Restroom - Accessible"){
-            restroomAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Accessible Restrooms</div>`
-        }
-        if(object2.name === "Wheelchair Accessible"){
-            wheelchairAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Wheelchair Accessible</div>`
-        }
-        if(object2.name === "Accessible Rooms"){
-            roomAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Accessible Rooms</div>`
-        }
-        if(object2.name === "Accessible Sites"){
-            siteAccess = "positive"
-            accessDetailTarget.innerHTML += `<div>✔️ Accessible Sites</div>`
-        }
+            if(object2.name === "Restroom - Accessible"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Accessible Restrooms</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
+                    `
+                    }
+                }
+            }
+            if(object2.name === "Wheelchair Accessible"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Wheelchair Access</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
+                    `
+                    }
+                }
+            }
+            if(object2.name === "Accessible Rooms"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Accessible Rooms</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
+                    `
+                    }
+                }
+            }
+            if(object2.name === "Accessible Sites"){
+                accessDetailTarget.innerHTML += `
+                    <div class="access-type">Places with Accessible Sites</div>
+                `
+                for(const park of object2.parks){
+                    for(const place of park.places){
+                    accessDetailTarget.innerHTML += `
+                        <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
+                    `
+                    }
+                }
+            }
         }
     }
-    if(restroomAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Accessible Restrooms</div>`
-    }
-    if(wheelchairAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Wheelchair Accessible</div>`
-    }
-    if(roomAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Accessible Rooms</div>`
-    }
-    if(siteAccess === ""){
-        accessDetailTarget.innerHTML += `<div>❌ Accessible Sites</div>`
+    if(accessDetailTarget.innerHTML === ""){
+        accessDetailTarget.innerHTML += `<div>No Accessibility Info On File.</div>`
     }
     accessDetailTarget.innerHTML += `<div>Please Call Ahead for More Accessibility Info.</div>`
 }
+
+//will store signal info
+let parkSignal
+
+//listens for detail button click to fetch and render cell info
+eventHub.addEventListener("detailsClicked", event => {
+    const parkChosen = parkInfoCopy()
+    const officialParkCode = parkChosen[0].parkCode
+    return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces?parkCode=${officialParkCode}&q=cellular&api_key=${defaultExport.npsKey}`)
+    .then(response => response.json()
+    .then(
+        parsedPark => {
+            parkSignal = parsedPark
+            renderParkSignal()
+        }
+    ))
+})
+
+//parses through signal info data to render what places have cell service
+const renderParkSignal = () => {
+    parkAccessTarget.innerHTML += `<div class="cell-detail"></div>`
+    const cellDetailTarget = document.querySelector(".cell-detail")
+    for(const object of parkSignal.data){
+        for(const object2 of object){
+            cellDetailTarget.innerHTML += `
+                <div class="access-type">Cell Service Available:</div>
+            `
+            for(const park of object2.parks){
+                for(const place of park.places){
+                    cellDetailTarget.innerHTML += `
+                        <div>${place.title}</div>
+                    `
+                }
+            }
+        }
+            
+    }
+    //displays no info on file if api returns empty
+    if(cellDetailTarget.innerHTML === ""){
+        cellDetailTarget.innerHTML += `<div>No Accessibility Info On File.</div>`
+    }
+    cellDetailTarget.innerHTML += `<div>Please Call Ahead for More Cell Service Info.</div>`
+}
+    

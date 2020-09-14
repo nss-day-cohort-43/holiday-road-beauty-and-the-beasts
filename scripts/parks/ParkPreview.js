@@ -38,10 +38,15 @@ eventHub.addEventListener("parkChosen", event => {
         parkArray = matchingPark
         //renders HTML of matching park
         renderParkPreview(matchingPark)
+        const weatherContainer = document.querySelector(".weather-container")
+        weatherContainer.innerHTML =``
         getWeather()
         .then(()=>{
             weatherList()
         })
+        if (weatherContainer.innerHTML === ""){
+            weatherContainer.innerHTML = `No Weather Info On File.`
+        }
     }
 })
 
