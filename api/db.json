@@ -29,6 +29,12 @@
       "chosenAttraction": "The Sip ‘n Dip Lounge Mermaids",
       "chosenEatery": "Skylight Inn",
       "id": 5
+    },
+    {
+      "chosenPark": "Hot Springs National Park",
+      "chosenAttraction": "Largest Fork in the US",
+      "chosenEatery": "Louis' Lunch",
+      "id": 6
     }
   ]
 }
