@@ -28,21 +28,21 @@ After each teammate clone the repository, each must perform the following steps.
 
 ### Building the Itinerary
 
-* List all national parks in a dropdown. When user chooses one, display the name of the park in the **Itinerary Preview** section.
+- List all national parks in a dropdown. When user chooses one, display the name of the park in the **Itinerary Preview** section.
 
-* List all bizarraries in a dropdown. When user chooses one, display the name of the bizarre attraction in the **Itinerary Preview** section.
+- List all bizarraries in a dropdown. When user chooses one, display the name of the bizarre attraction in the **Itinerary Preview** section.
 
-* List all eateries in a dropdown. When user chooses one, display the name of the eatery in the **Itinerary Preview** section.
+- List all eateries in a dropdown. When user chooses one, display the name of the eatery in the **Itinerary Preview** section.
 
 ### Itinerary Details
 
-* In the **Itinerary Preview** section, there should be a button labeled _Save Itinerary_. It should be disabled by default.
-* When the user has selected a park, and the name of the park has been added to the **Itinerary Preview** section, query the Open Weather API and display the 5 day forecast for that location. This will allow the user to see if they want to make the trip soon.
-* When the user adds any item to the **Itinerary Preview**, there should be a _Details_ button next to the name of the item.
+- In the **Itinerary Preview** section, there should be a button labeled _Save Itinerary_. It should be disabled by default.
+- When the user has selected a park, and the name of the park has been added to the **Itinerary Preview** section, query the Open Weather API and display the 5 day forecast for that location. This will allow the user to see if they want to make the trip soon.
+- When the user adds any item to the **Itinerary Preview**, there should be a _Details_ button next to the name of the item.
 
-* When the user clicks on any detail button for an itinerary item, a dialog box should be presented to the user with more information about that item _(description, address, etc...)_.
-* Once the user has selected a park, a bizarre attraction, and an eatery, the _Save Itinerary_ button should be enabled.
-* When the user clicks the _Save Itinerary_ button, the chosen items should be saved as an object in your own, local API that is managed by `json-server`. Each saved itinerary should appear in an aside bar on the right side of the UI.
+- When the user clicks on any detail button for an itinerary item, a dialog box should be presented to the user with more information about that item _(description, address, etc...)_.
+- Once the user has selected a park, a bizarre attraction, and an eatery, the _Save Itinerary_ button should be enabled.
+- When the user clicks the _Save Itinerary_ button, the chosen items should be saved as an object in your own, local API that is managed by `json-server`. Each saved itinerary should appear in an aside bar on the right side of the UI.
 
 ### Stretch Goal: Directions
 
@@ -50,10 +50,10 @@ Only after the main fetures of the application listed above are complete, you ca
 
 Once the user has saved an itinerary, and it is listed on the aside bar, refactor your application to add a _Get Directions_ button to each HTML representation of the itinerary. When the user clicks that button for an itinerary, the user should be presented with step-by-step instructions for the trip. It should include
 
-* All 4 locations _(Nashville, bizarrerie, eatery, and national park)_ need to be sent to Geocoding API to the the latitude and longitude for each one.
+- All 4 locations _(Nashville, bizarrerie, eatery, and national park)_ need to be sent to Geocoding API to the the latitude and longitude for each one.
 
-* Then all 4 lat/long pairs should be in the URL for the request to the Routing API.
-* The step-by-step instructions in the response from the Routing API should be displayed below the **Itinerary Preview** section.
+- Then all 4 lat/long pairs should be in the URL for the request to the Routing API.
+- The step-by-step instructions in the response from the Routing API should be displayed below the **Itinerary Preview** section.
 
 ### Stretch Goal: Multiple Bizarreries and Eateries
 
@@ -63,12 +63,12 @@ For this stretch goal, the user can still only pick one national park as the des
 
 Add a button to a saved itinerary labeled _Events_. When the user clicks the button, query the NPS API to get the first two events _(use the `limit` query parameter)_ for that park. Then display the following data in a dialog box.
 
-* title
-* dateStart
-* timeStart
-* timeEnd
-* description
-* feeInfo
+- title
+- dateStart
+- timeStart
+- timeEnd
+- description
+- feeInfo
 
 ### Stretch Goal: Search
 
@@ -83,8 +83,8 @@ Display all matching items in a **`SearchResults`** component. Each item in the 
 
 ## National Park Service API
 
-* API home: https://www.nps.gov/subjects/digital/nps-data-api.htm
-* API documentation: https://www.nps.gov/subjects/developer/api-documentation.htm
+- API home: https://www.nps.gov/subjects/digital/nps-data-api.htm
+- API documentation: https://www.nps.gov/subjects/developer/api-documentation.htm
 
 ### List All Parks
 
@@ -118,31 +118,26 @@ https://graphhopper.com/api/1/geocode?q=yosemite+national+park&locale=us&debug=t
 
 ```json
 {
-    "hits": [
-        {
-            "osm_id": 1643367,
-            "osm_type": "R",
-            "extent": [
-                -119.8861004,
-                38.1863499,
-                -119.1995075,
-                37.4946797
-            ],
-            "country": "United States of America",
-            "osm_key": "leisure",
-            "housenumber": "PO box 577",
-            "street": "Mt. Hoffmann Trail",
-            "osm_value": "nature_reserve",
-            "postcode": "95389",
-            "name": "Yosemite National Park",
-            "state": "California",
-            "point": {
-                "lng": -119.51658779802511,
-                "lat": 37.84054795
-            }
-        }
-    ],
-    "took": 24
+	"hits": [
+		{
+			"osm_id": 1643367,
+			"osm_type": "R",
+			"extent": [-119.8861004, 38.1863499, -119.1995075, 37.4946797],
+			"country": "United States of America",
+			"osm_key": "leisure",
+			"housenumber": "PO box 577",
+			"street": "Mt. Hoffmann Trail",
+			"osm_value": "nature_reserve",
+			"postcode": "95389",
+			"name": "Yosemite National Park",
+			"state": "California",
+			"point": {
+				"lng": -119.51658779802511,
+				"lat": 37.84054795
+			}
+		}
+	],
+	"took": 24
 }
 ```
 
@@ -153,24 +148,25 @@ Once you have the coordinate of a place, you can get directions to it. The first
 https://graphhopper.com/api/1/route?point=starting_latitude,starting_longitude&point=destination_latitude,destination_longitude&vehicle=car&locale=us&instructions=true&calc_points=true&key=your_api_key"
 
 ## Tips For A Good Usable Website
+
 1. Use acceptable conventions
-   * Logo positioned at top left
-   * Navigation across the top or down the left side
-   * Copyright in the footer.
+   - Logo positioned at top left
+   - Navigation across the top or down the left side
+   - Copyright in the footer.
 2. Visual hierarchy
-   * Most important information is the most prominent
+   - Most important information is the most prominent
 3. Break pages up into defined sections
-   * Logically related content should be related visually
+   - Logically related content should be related visually
 4. That which is clickable should be obviously clickable.
 5. Eliminate distractions
-   * Use only two typefaces
-   * Limit color pallet (3 colors with black and white)
-   * Use a grid
+   - Use only two typefaces
+   - Limit color pallet (3 colors with black and white)
+   - Use a grid
 6. Support scanning (users don't read)
-   * Use plenty of headings
-   * Short paragraphs
-   * Bulleted lists
-   * Left aligned text
+   - Use plenty of headings
+   - Short paragraphs
+   - Bulleted lists
+   - Left aligned text
 7. Strive for consistency.
 8. Use semantic and valid HTML: validator at [https://validator.w3.org/](https://validator.w3.org/).
 
@@ -203,3 +199,13 @@ https://graphhopper.com/api/1/route?point=starting_latitude,starting_longitude&p
 ### Peter
 
 ![](./personas/persona-peter.png)
+
+### Team Read Me
+
+1. To set up and run the web app you will need to serve a local server and then start a local JSON server at port 8088 (this needs work)
+2. The App is designed with Charles in mind.
+   - We added features to make sure that he can find out if the locations are accessible and have cell coverage.
+   - We used a lot of white space, because based on his persona that looked like a style he would like.
+   - We decided to go with a 3 column layout to make it easier to scan, and allows the user to manipulate the data left to right.
+
+![](./imgs/readmeWireframe.png)
