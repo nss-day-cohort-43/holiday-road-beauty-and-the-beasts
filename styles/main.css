@@ -1,3 +1,29 @@
+/* This is for styling the header elements */
+
+header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+.logo {
+	order: 0;
+	height: 100%;
+	width: auto;
+}
+
+.title-description {
+	order: 1;
+	flex-basis: 75%;
+}
+
+/* This is the end for the header styling  */
+
 body {
 	font-family: 'Poppins', sans-serif;
 }
@@ -5,6 +31,11 @@ body {
 main {
 	display: flex;
 	flex-direction: row;
+}
+
+.description {
+	text-align: left;
+	font-size: 13px;
 }
 
 /* This is the beginning of the dropdown styling (The left most block of the website) */
@@ -91,7 +122,7 @@ button {
 	outline: none;
 }
 .disabled {
-    opacity: 0.3;
+	opacity: 0.3;
 }
 
 /* This is the end of the preview container styling */
@@ -101,8 +132,7 @@ button {
 /* This is the beginning of the saved itinerary section of the website. 
 This bar is the right most part of the part of the website
 */
-
-.saved-itinerary {
+.wrapper-saved-itinerary {
 	order: 3;
 	flex-basis: 30%;
 	margin: 5px;
@@ -110,6 +140,11 @@ This bar is the right most part of the part of the website
 	border-radius: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.15);
 	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+}
+
+.saved-itinerary {
+	margin: 5px;
+	padding: 5px;
 }
 
 .itinerary-card {
