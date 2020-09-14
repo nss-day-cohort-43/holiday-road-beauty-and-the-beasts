@@ -8,6 +8,7 @@ const eventHub = document.querySelector("main")
 const itineraryTarget = document.querySelector(".saved-itinerary")
 
 //a function to fetch the saved itineraries and render them to the DOM
+//also adds a save itinerary button
 export const ItineraryList = () => {
     getItineraries()
     .then(useItineraries)

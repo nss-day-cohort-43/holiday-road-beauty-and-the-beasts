@@ -10,8 +10,8 @@ let eatery
 let itineraries = []
 
 // an event listener to tell us when all 3 options have been chosen, 
-// if they have it generates a 'save itinerary' button
-// button will disappear if you return a dropdown to zerp\o
+// if they have it will activate the save itinerary button
+// button will deactive once itin is saved or if you return a dropdown to zero
 eventHub.addEventListener ("change", event => {
     
     const selectedPark = document.querySelector("#parkSelect")
