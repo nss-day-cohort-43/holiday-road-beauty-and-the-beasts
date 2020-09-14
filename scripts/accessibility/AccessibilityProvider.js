@@ -1,4 +1,3 @@
-import { useParks } from "../parks/ParkProvider.js";
 import defaultExport from '../Settings.js';
 
 let parksGeneral = []
@@ -20,9 +19,7 @@ export const useAllAccessibility = () => {
 export const fetchAccessInfo = () => {
 
     allAccessibility.hearing.forEach(key => { 
-        let URLkey = encodeURI(key);
-        // console.log(URLkey);
-        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${URLkey}&api_key=${defaultExport.npsKey}`)
+        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${key}&api_key=${defaultExport.npsKey}`)
         .then(response => response.json()
         .then(
             parsedParks => {
@@ -32,10 +29,8 @@ export const fetchAccessInfo = () => {
         }))     
     })
 
-    allAccessibility.vision.forEach(key => { 
-        let URLkey = encodeURI(key);
-        // console.log(URLkey);
-        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${URLkey}&api_key=${defaultExport.npsKey}`)
+    allAccessibility.vision.forEach(key => {
+        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${key}&api_key=${defaultExport.npsKey}`)
         .then(response => response.json()
         .then(
             parsedParks => {
@@ -44,9 +39,7 @@ export const fetchAccessInfo = () => {
     })
 
     allAccessibility.mobility.forEach(key => { 
-        let URLkey = encodeURI(key);
-        // console.log(URLkey);
-        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${URLkey}&api_key=${defaultExport.npsKey}`)
+        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${key}&api_key=${defaultExport.npsKey}`)
         .then(response => response.json()
         .then(
             parsedParks => {
@@ -55,9 +48,7 @@ export const fetchAccessInfo = () => {
     })
 
     allAccessibility.general.forEach(key => { 
-        let URLkey = encodeURI(key);
-        // console.log(URLkey);
-        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${URLkey}&api_key=${defaultExport.npsKey}`)
+        return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${key}&api_key=${defaultExport.npsKey}`)
         .then(response => response.json()
         .then(
             parsedParks => {
