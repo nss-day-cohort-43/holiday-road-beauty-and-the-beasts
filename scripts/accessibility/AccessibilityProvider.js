@@ -20,7 +20,9 @@ const eventHub = document.querySelector("main")
 export const useAllAccessibility = () => {
     let allAccessibility = []
     allAccessibility.push(parksGeneral, parksMobility, parksVision, parksHearing)
+    console.log(allAccessibility)
     parksAccessibilityAll = allAccessibility.flat()
+    return parksAccessibilityAll
 }
 
 export const fetchAccessInfo = () => {
@@ -34,6 +36,8 @@ export const fetchAccessInfo = () => {
             parsedParks => {
                 if (parsedParks.data[0]) {
                 parksHearing.push(parsedParks.data[0][0])
+                } else {
+                    console.log(0)
                 }
         }))     
     })
@@ -49,7 +53,7 @@ export const fetchAccessInfo = () => {
         }))     
     })
 
-    allAccessibility.vision.forEach(key => { 
+    allAccessibility.mobility.forEach(key => { 
         let URLkey = encodeURI(key);
         // console.log(URLkey);
         return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${URLkey}&api_key=${defaultExport.npsKey}`)

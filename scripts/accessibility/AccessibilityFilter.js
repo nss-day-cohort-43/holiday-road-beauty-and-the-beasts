@@ -11,15 +11,28 @@ export const addAccessibileParkIcons = () => {
 
 }
 
-eventHub.addEventListener('stateChosen', (event) => {
+eventHub.addEventListener('click', (event) => {
+    if (event.target.id === "parkSelect") {
+    
     let allAccessibleParks = useAllAccessibility()
     console.log(allAccessibleParks)
-    let parkDropdown = document.querySelector(".park")
-    let parkOptions = parkDropdown.querySelectorAll("option")
+    let parkDiv = document.querySelector(".park")
+    let parkDropdown = document.querySelector("#parkSelect") 
+    let parkOptions = parkDropdown.querySelectorAll('option')
+    let categories = allAccessibleParks.flat(2)
+    // console.log(bigString)
     parkOptions.forEach(element => {
-        console.log(element)
+        categories.forEach(category => {
+            category.parks.forEach(park => {
+                if (element.value === park.fullName)
+                {element.innerHTML += "♿"}
+            })
+        })
+
+        // console.log(element)
         
     })
+}
 })
 
 
