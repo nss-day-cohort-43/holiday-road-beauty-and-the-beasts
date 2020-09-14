@@ -1,10 +1,34 @@
 {
   "itineraries": [
     {
-      "chosenPark": "Indiana Dunes National Park",
-      "chosenAttraction": "Big White Shirt",
-      "chosenEatery": "Hudson's Hamburgers",
+      "chosenPark": "Civil War Defenses of Washington",
+      "chosenAttraction": "Largest Fork in the US",
+      "chosenEatery": "Louis' Lunch",
       "id": 1
     },
+    {
+      "chosenPark": "El Camino Real de los Tejas National Historic Trail",
+      "chosenAttraction": "Cabazon Dinosaurs",
+      "chosenEatery": "Big Bob Gibson Bar-B-Que",
+      "id": 2
+    },
+    {
+      "chosenPark": "Mississippi National River and Recreation Area",
+      "chosenAttraction": "E.T. Fresh Jerky",
+      "chosenEatery": "Ocean Pride",
+      "id": 3
+    },
+    {
+      "chosenPark": "New England National Scenic Trail",
+      "chosenAttraction": "Avery’s Beverages",
+      "chosenEatery": "Grand Union Hotel",
+      "id": 4
+    },
+    {
+      "chosenPark": "Great Basin National Park",
+      "chosenAttraction": "The Sip ‘n Dip Lounge Mermaids",
+      "chosenEatery": "Skylight Inn",
+      "id": 5
+    }
   ]
 }
