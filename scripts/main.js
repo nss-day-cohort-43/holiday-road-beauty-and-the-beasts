@@ -24,3 +24,7 @@ stateSelect();
 eateryDropdownRender();
 //creates a dropdown attractions menu
 AttractionSelect();
+// this should make the itinerary section work.
+ItineraryList();
+
+// saveItinerary();

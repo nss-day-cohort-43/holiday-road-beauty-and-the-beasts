@@ -1,0 +1,110 @@
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+main {
+	display: flex;
+	flex-direction: row;
+}
+
+/* This is the beginning of the dropdown styling (The left most block of the website) */
+
+.dropdown-container {
+	order: 0;
+	flex-basis: 30%;
+	margin: 5px;
+	padding: 5px;
+}
+
+.select {
+	margin: 5px;
+	padding: 5px;
+}
+
+.dropdown {
+	position: relative;
+	width: 200px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 7px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+	cursor: pointer;
+	outline: none;
+	font-weight: bold;
+}
+
+option {
+	font-weight: bold;
+}
+/* This is the end of the dropdown container styling */
+
+/*  */
+
+/* This is the beginning of the preview container stylings. This holds the elements being styled in the middle of the page. */
+
+.itenerary-preview {
+	order: 1;
+	flex-basis: 30%;
+	display: flex;
+	flex-direction: column;
+	margin: 5px;
+	padding: 5px;
+}
+.preview-attraction {
+	order: 0;
+	margin: 5px;
+	padding: 5px;
+}
+.preview-park {
+	order: 2;
+	margin: 5px;
+	padding: 5px;
+}
+.preview-eatery {
+	order: 1;
+	margin: 5px;
+	padding: 5px;
+}
+#saveBtnContainer {
+	order: 3;
+	align-self: center;
+	margin: 5px;
+	padding: 5px;
+}
+
+button {
+	position: relative;
+	width: 100px;
+	margin: 0 auto;
+	padding: 7px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+	cursor: pointer;
+	outline: none;
+}
+
+/* This is the end of the preview container styling */
+
+/*  */
+
+/* This is the beginning of the saved itinerary section of the website. 
+This bar is the right most part of the part of the website
+*/
+
+.saved-itinerary {
+	order: 3;
+	flex-basis: 30%;
+	margin: 5px;
+	padding: 5px;
+}
+
+.itinerary-card {
+	font-size: 13px;
+	margin: 2px auto;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+}
