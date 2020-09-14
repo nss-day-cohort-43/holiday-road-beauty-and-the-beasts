@@ -5,11 +5,12 @@ import { AttractionSelect } from './attractions/AttractionSelector.js';
 import { attractionsPreviewListener } from './attractions/AttractionsPreview.js';
 import { parkPreviewListener } from './parks/ParkPreview.js';
 import { ItineraryList } from './itineraries/ItineraryList.js';
-import { listener } from './accessibility/AccessibilityProvider.js';
+import { fetchAccessInfo } from './accessibility/AccessibilityProvider.js';
 
 import { weatherListener } from './weather/WeatherProvider.js';
 import { eateryPreviewListener } from './eateries/EateryPreview.js';
 import { saveItinerary } from './itineraries/itineraryProvider.js';
+import { addAccessibileParkIcons } from './accessibility/AccessibilityFilter.js';
 
 // This is for the mainListener calls
 eateryPreviewListener();
@@ -28,3 +29,5 @@ AttractionSelect();
 ItineraryList();
 
 // saveItinerary();
+
+fetchAccessInfo()
