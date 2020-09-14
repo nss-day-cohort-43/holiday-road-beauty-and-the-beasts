@@ -8,10 +8,13 @@ const eventHub = document.querySelector("main")
 const itineraryTarget = document.querySelector(".saved-itinerary")
 
 //a function to fetch the saved itineraries and render them to the DOM
+//also adds a save itinerary button
 export const ItineraryList = () => {
     getItineraries()
     .then(useItineraries)
     .then(render)
+    const saveBtnContainer = document.getElementById("saveBtnContainer")
+    saveBtnContainer.innerHTML = `<button type="button" id="saveBtn" class="disabled">Save Itinerary</button>`
 }
 
 //a function to render an itinerayArray to the list of saved itineraries
