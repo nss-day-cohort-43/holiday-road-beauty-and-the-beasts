@@ -42,8 +42,8 @@ const renderEateryPreview = (eateryChosen) => {
 	eateryPreviewTarget.innerHTML = `
         <div class="eatery-card">
             ${eateryChosen.map((eateryObj) => {
-							return `<div class="eatery-name">${eateryObj.businessName}</div>
-                    <div class="location">${eateryObj.city}, ${eateryObj.state}</div>
+							return `<div class="eatery-name"><b>${eateryObj.businessName}</b></div>
+                    <div class="eatery-location">${eateryObj.city}, ${eateryObj.state}</div>
                     <button id="eateryDetails">Details</button>
                     <div class="eatery-detail-container"></div>
                     `;
@@ -65,8 +65,7 @@ const renderEateryDetails = (eateryObj) => {
 	const eateryDetailsTarget = document.querySelector(
 		'.eatery-detail-container'
 	);
-	let createdHTML = `<h4>${eateryObj.businessName}</h4>
-  <p>${eateryObj.city}, ${eateryObj.state}</p>
+	let createdHTML = `
   <p>${eateryObj.description}</p>
   ${amenetiesLogic(eateryObj)}`;
 
