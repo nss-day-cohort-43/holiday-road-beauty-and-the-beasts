@@ -13,6 +13,7 @@ const eateryPreviewTarget = document.querySelector('.preview-eatery');
 
 // This will hold the chosen eatery
 let chosenEateryObject = {};
+let chosenEateryArray = [];
 
 //listens for a change from eatery dropdown
 eventHub.addEventListener('eateryChosenEvent', (event) => {
@@ -30,6 +31,7 @@ eventHub.addEventListener('eateryChosenEvent', (event) => {
 				return false;
 			}
 		});
+		chosenEateryArray = matchingEatery;
 		//renders HTML for the matching Eatery - function is below
 		renderEateryPreview(matchingEatery);
 	}
@@ -107,3 +109,12 @@ const amenetiesLogic = (EateryObj) => {
 	}
 	return amenetiesHTML;
 };
+
+eventHub.addEventListener("click", event => {
+    if (event.target.id === "eateryDetails" && event.target.textContent === "Details") {
+        document.getElementById("eateryDetails").textContent = "Hide Details"
+    } else if (event.target.id === "eateryDetails" && event.target.textContent === "Hide Details") {
+		document.getElementById("eateryDetails").textContent = "Details"
+		renderEateryPreview(chosenEateryArray)
+    }
+})
