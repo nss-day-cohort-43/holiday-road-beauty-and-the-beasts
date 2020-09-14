@@ -8,10 +8,13 @@ export const parkPreviewListener = () => {}
 //defines eventHub for listener
 const eventHub = document.querySelector("main")
 //defines where park info will be sent on page
-const parkPreviewTarget = document.querySelector(".preview-park")
+const parkPreviewTarget = document.querySelector(".park-card")
+//defines where detail info will be sent on page
+const detailPreviewTarget = document.querySelector(".park-detail-container")
 //holds parks that was chosen after event
 let parkArray = []
 
+//allows other modules to use the selected park data
 export const parkInfoCopy = () => {
     return parkArray.slice()
 }
@@ -42,36 +45,32 @@ eventHub.addEventListener("parkChosen", event => {
     }
 })
 
+
 //creates HTML for park
 const renderParkPreview = (parkChosen) => {
     parkPreviewTarget.innerHTML = `
-        <div class="park-card">
             ${
                 parkChosen.map(parkObj => {
-                    return `<div class="park-name">${parkObj.name}</div>
+                    return `<div class="park-name">${parkObj.fullName}</div>
                         <a href="${parkObj.url}" target="_blank" class="park-site">Park Website</a>
-                        <div class="location">${parkObj.addresses[1].city}, ${parkObj.addresses[1].stateCode}</div>
-                        <button id="parkDetails">Details</button>
-                        <div class="park-detail-container"></div>
                     `
                 })
             }
-        </div>
+        
     `
+    detailPreviewTarget.innerHTML = `<button id="parkDetails">Details</button>`
 }
-
-eventHub.addEventListener("click", event)
-
 
 
 //listens for detail button click and runs the rendering functions
 eventHub.addEventListener("click", clickEvent => {
-    if(clickEvent.target.id === "parkDetails"){
+    if(clickEvent.target.id === "parkDetails" && clickEvent.target.textContent === "Details"){
         const detailsClickedEvent = new CustomEvent("detailsClicked", {})
         eventHub.dispatchEvent(detailsClickedEvent)
     }
 })
 
+//listens for details clicked to render details
 eventHub.addEventListener("detailsClicked", event => {
     renderParkDetails(parkArray)
     renderParkAddress(parkArray)
@@ -83,14 +82,14 @@ eventHub.addEventListener("detailsClicked", event => {
 const renderParkDetails = (parkChosen) => {
     //defines where details of park will go on page
     const detailsTarget = document.querySelector(".park-detail-container")
-    detailsTarget.innerHTML = `
+    detailsTarget.innerHTML += `
     ${
         parkChosen.map(parkObj => {
             return `
                 <div class="park-description">${parkObj.description}</div><br>
                 <div class="park-address">${parkObj.addresses[0].line1}</div>
                 <div class="location-details">${parkObj.addresses[0].city}, ${parkObj.addresses[0].stateCode} ${parkObj.addresses[0].postalCode}</div>
-                <div class="park-fee">${parkObj.entranceFees[0].description}</div><br>
+                <div class="park-phone">${parkObj.contacts.phoneNumbers[0].phoneNumber}</div>
                 <div class="park-hours">${parkObj.operatingHours[0].description}<br>
                 </div>
             `
@@ -121,4 +120,16 @@ const renderParkAddress = (parkChosen) => {
     }})
     
 }
+
+
+//listens for details click to change to hide details button
+eventHub.addEventListener("click", event => {
+    if (event.target.id === "parkDetails" && event.target.textContent === "Details") {
+        document.getElementById("parkDetails").textContent = "Hide Details"
+    } else if (event.target.id === "parkDetails" && event.target.textContent === "Hide Details") {
+        document.getElementById("parkDetails").textContent = "Details"
+        const detailContainerTarget = document.querySelector(".park-detail-container")
+        detailContainerTarget.innerHTML = `<button id="parkDetails">Details</button>`
+    }
+})
 

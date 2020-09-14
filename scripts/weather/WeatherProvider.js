@@ -24,8 +24,10 @@ export const getWeather = () => {
         )
 }
 
+//lets weather be used on other modules
 export const useWeather = () => {
     return forecast
 }
 
+//allows main to recognize this module
 export const weatherListener = () => {}
