@@ -6,59 +6,5 @@
       "chosenEatery": "Hudson's Hamburgers",
       "id": 1
     },
-    {
-      "chosenPark": "Fort Frederica National Monument",
-      "chosenAttraction": "Big White Shirt",
-      "chosenEatery": "Buckhorn Exchange",
-      "id": 2
-    },
-    {
-      "chosenPark": "Stones River National Battlefield",
-      "chosenAttraction": "First Kiss Spot of the Obamas",
-      "chosenEatery": "Deer Park Tavern",
-      "id": 3
-    },
-    {
-      "chosenPark": "7D6098F9-3F75-4775-A56D-CD9C7F9A9488",
-      "chosenAttraction": "15",
-      "chosenEatery": "Deer Park Tavern",
-      "id": 4
-    },
-    {
-      "chosenPark": "64B9F127-31ED-43C9-882D-D7CD471AF314",
-      "chosenAttraction": "11",
-      "chosenEatery": "Big Bob Gibson Bar-B-Que",
-      "id": 5
-    },
-    {
-      "chosenPark": "BC195D18-71C8-4A99-BF8E-10BFAB849679",
-      "chosenAttraction": "12",
-      "chosenEatery": "Gene & Jude's",
-      "id": 6
-    },
-    {
-      "chosenPark": "3ACC9199-1234-4E50-B80E-65DB783B4BB7",
-      "chosenAttraction": "7",
-      "chosenEatery": "Big Bob Gibson Bar-B-Que",
-      "id": 7
-    },
-    {
-      "chosenPark": "Channel Islands National Park",
-      "chosenAttraction": "Cabazon Dinosaurs",
-      "chosenEatery": "H&H Soul Food",
-      "id": 8
-    },
-    {
-      "chosenPark": "Chesapeake Bay",
-      "chosenAttraction": "Largest Fork in the US",
-      "chosenEatery": "Hy's Steak House",
-      "id": 71
-    },
-    {
-      "chosenPark": "Little River Canyon National Preserve",
-      "chosenAttraction": "Giant Tattoo Needle",
-      "chosenEatery": "Hy's Steak House",
-      "id": 72
-    }
   ]
 }

@@ -17,21 +17,24 @@ eventHub.addEventListener ("change", event => {
     const selectedPark = document.querySelector("#parkSelect")
     const selectedEatery = document.querySelector("#eaterySelector")
     const selectedAttraction = document.querySelector("#attractionSelect")
-    const saveBtnContainer = document.getElementById("saveBtnContainer")
-
-    if (selectedPark.value !== "0" &&
-     selectedEatery.value !== "0" && 
-     selectedAttraction.value !== "0") {
-         saveBtnContainer.innerHTML = `<button type="button" id="saveBtn">Save Itinerary</button>`
-        } else {
-            saveBtnContainer.innerHTML = ""
-        }
+    const saveBtn = document.getElementById("saveBtn")
+    if (selectedPark) {
+        if (selectedPark.value !== "0" &&
+        selectedEatery.value !== "0" && 
+        selectedAttraction.value !== "0") {
+                saveBtn.classList.remove("disabled")
+            } else {
+                if (!saveBtn.classList.contains("disabled"))
+                saveBtn.classList.add("disabled")
+            }
+    }
     } )
     
 // an event listener that catches when someone clicks the save button and calls the saveItineray function
     eventHub.addEventListener("click", clickEvent => {
-        if (clickEvent.target.id === "saveBtn") {
+        if (clickEvent.target.id === "saveBtn" && !saveBtn.classList.contains("disabled")) {
             saveItinerary()
+            saveBtn.classList.add("disabled")
         }
     })
 

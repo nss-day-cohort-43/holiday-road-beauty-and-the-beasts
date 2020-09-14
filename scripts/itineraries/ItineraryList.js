@@ -12,6 +12,8 @@ export const ItineraryList = () => {
     getItineraries()
     .then(useItineraries)
     .then(render)
+    const saveBtnContainer = document.getElementById("saveBtnContainer")
+    saveBtnContainer.innerHTML = `<button type="button" id="saveBtn" class="disabled">Save Itinerary</button>`
 }
 
 //a function to render an itinerayArray to the list of saved itineraries

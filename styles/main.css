@@ -84,6 +84,9 @@ button {
 	cursor: pointer;
 	outline: none;
 }
+.disabled {
+    opacity: 0.3;
+}
 
 /* This is the end of the preview container styling */
 
