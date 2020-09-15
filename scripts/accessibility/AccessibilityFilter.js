@@ -34,7 +34,7 @@ eventHub.addEventListener('click', (event) => {
                     element.style.display = "none"
                 }})
             }
-        } 
+        }
 })
 //filters out eatries and parks with no accessibility data adds a text warning about attractions
 //if you uncheck the accessibility filter checkbox it adds the non-accessible parks back in, 
@@ -66,9 +66,9 @@ eventHub.addEventListener('click', (event) => {
                 })
             }
             eateryOption.forEach(element => {
-                console.log(element)
                 element.style.display = ""
             })
+            document.getElementById("attraction-info").remove()
         }
     }
 })

@@ -29,7 +29,7 @@ eventHub.addEventListener('change', (event) => {
 const eateryDropDownHtmlBuilder = (EateryCollection) => {
 	dropDownTarget.innerHTML = `
     <select class="dropdown" id="eaterySelector">
-      <option value="0">Choose a eatery!</option>
+      <option value="0">Choose an Eatery!</option>
       ${EateryCollection.map((eateryObj) => {
 				const BizName = eateryObj.businessName;
 				return `<option value="${BizName}">${BizName}</option>`;
