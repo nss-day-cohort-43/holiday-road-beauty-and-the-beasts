@@ -2,9 +2,9 @@ import defaultExport from '../Settings.js';
 
 
 let route
-let locationsData =[]
 
 export const geocodeLocations = (itinerary) => {
+	let locationData =[]
 	let locations = Object.values(itinerary)
 	locations.pop()
 	locations.unshift('nashville')
@@ -12,19 +12,20 @@ export const geocodeLocations = (itinerary) => {
 		fetch (`https://graphhopper.com/api/1/geocode?q=${location}&locale=us&debug=true&key=${defaultExport.graphhopperKey}`)
 			.then((response) => response.json())
 				.then((parsedlocation) => {
-					locationsData.push(parsedlocation);
+					locationData.push(parsedlocation);
 				})
 			})
-			return locationsData
+			return locationData
 }
 
 
 export const getRoute = (locationsData) => {
 	// debugger;
 	console.log(locationsData)
-	console.log(typeof locationsData)
-	let location1 = locationsData.pop()
-	console.log(location1)
+	console.log(locationsData[0])
+	// console.log(Object.values(locationsData))
+	// let location1 = locationsData.pop()
+	// console.log(location1)
 	
 	// let location1= locationsData[0].hits[0].points
 	let location2= locationsData[1].hits[0].points
