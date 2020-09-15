@@ -31,3 +31,4 @@ eventHub.addEventListener("itineraryStateChanged", () => {
     const newItinerary = useItineraries()
     render(newItinerary)
 })
+

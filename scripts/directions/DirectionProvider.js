@@ -1,16 +1,40 @@
 import defaultExport from '../Settings.js';
 
+const eventHub = document.querySelector("main")
 
-export const geocodeLocations (attraction, eatery, park) {
-    return fetch ("https://graphhopper.com/api/1/geocode?q=nashville&locale=us&debug=true&key=your_api_key
-    ")
-    .then((response) => response.json())
-			.then((parsedlocation) => {
-				let nashvilleLoc = parsedlocation;
-			})
-			.then(console.log);
+let route
+let locationsData =[]
+
+export const geocodeLocations = (itinerary) => {
+	let locations = object.values(itinerary)
+	locations.pop()
+	locations.unshift('nashville')
+	console.log(locations)
+	locations.forEach(location =>{
+		console.log(location)
+		return fetch (`https://graphhopper.com/api/1/geocode?q=${location}&locale=us&debug=true&key=${defaultExport.graphhopperKey}`)
+			.then((response) => response.json())
+				.then((parsedlocation) => {
+					locationsData.push(parsedlocation);
+				})
+		})
 
 }
+
+
+export const getRoute = (locationsArray) => {
+	let location1= locationsArray[0].hits[0].points
+	let location2= locationsArray[1].hits[0].points
+	let location3= locationsArray[2].hits[0].points
+	let location4= locationsArray[3].hits[0].points
+
+	return fetch (`https://graphhopper.com/api/1/route?point=${location1.lat},${location1.lng}&point=${location2.lat},${location2.lng}&point=${location3.lat},${location3.lng}&point=${location4.lat},${location4.lng}&vehicle=car&locale=us&instructions=true&calc_points=true&key=${defaultExport.graphhopperKey}`)
+	.then((response) => response.json())
+	.then((parsedRoute) => {
+		route = parsedRoute
+	})
+}
+
 
 
 
@@ -25,12 +49,20 @@ Then all 4 lat/long pairs should be in the URL for the request to the Routing AP
 
 The step-by-step instructions in the response from the Routing API should be displayed below the Itinerary Preview section.
 
+	
+	<button type=button id="routeDisplay--${Itinerary.id}">Get Route</button>
 
+eventHub.addEventListener("clicks", (event) => {
+    if(event.target.id.contains("routeDisplay")){
+        console.log("route clicked")
+        const [prefix, routeNum] = event.target.id.split("--")
+        const routeEvent = new CustomEvent("routeBtnClicked", {
+            detail: {
+                routeId: routeNum
+            }
+        })
+        eventHub.dispatchEvent(routeEvent)
+    }
+})
 
-
-https://graphhopper.com/api/1/geocode?q=yosemite+national+park&locale=us&debug=true&key=your_api_key
-
-
-
-
-*/
+	*/

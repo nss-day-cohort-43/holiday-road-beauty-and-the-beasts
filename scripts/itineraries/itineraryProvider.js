@@ -94,3 +94,15 @@ export const getItineraries = () => {
         })
 }
 
+eventHub.addEventListener("clicks", (event) => {
+    if(event.target.id.contains("routeDisplay")){
+        console.log("route clicked")
+        const [prefix, routeNum] = event.target.id.split("--")
+        const routeEvent = new CustomEvent("routeBtnClicked", {
+            detail: {
+                routeId: routeNum
+            }
+        })
+        eventHub.dispatchEvent(routeEvent)
+    }
+})
