@@ -52,13 +52,13 @@ const renderAccessOption = () => {
     accessSelectTarget.innerHTML += `
         <div id="access-select">
             <div>View Accessibility Options:</div>
-            <input type="checkbox" value="general"> 
+            <input type="checkbox" id="check" value="general"> 
             <label for="general">General</label>
-            <input type="checkbox" value="hearing"> 
+            <input type="checkbox" id="check" value="hearing"> 
             <label for="hearing">Hearing</label>
-            <input type="checkbox" value="vision"> 
+            <input type="checkbox" id="check" value="vision"> 
             <label for="vision">Vision</label>
-            <input type="checkbox" value="mobility"> 
+            <input type="checkbox" id="check" value="mobility"> 
             <label for="mobility">Mobility</label>
         </div>
         <div class="access-details"></div>
@@ -67,7 +67,7 @@ const renderAccessOption = () => {
 
 //listens for a change in option boxes
 eventHub.addEventListener("change", (event) => {
-    if(event.target.type === "checkbox"){
+    if(event.target.id === "check"){
         const accessValue = event.target.value
         const accessChosenEvent = new CustomEvent("accessChosen", {
             detail: {
