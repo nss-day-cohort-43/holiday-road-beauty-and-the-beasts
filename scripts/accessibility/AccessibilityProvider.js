@@ -14,10 +14,16 @@ export const useAllAccessibility = () => {
     return parksAccessibilityAll
 }
 
+let checkboxTarget = document.querySelector(".accessibility-target")
 
 //fetches all the accessibility data from the NPS API and stores it it 4 variables by category
 export const fetchAccessInfo = () => {
-
+    checkboxTarget.innerHTML += `
+        <div>
+            <input type="checkbox" value="accessibilityDisplay" id="accessibilityDisplay"> 
+            <label for="display">Display Only Accessible Destinations</label>
+        </div>
+    `
     allAccessibility.hearing.forEach(key => { 
         return fetch(`https://developer.nps.gov/api/v1/amenities/parksplaces/?q=${key}&api_key=${defaultExport.npsKey}`)
         .then(response => response.json()
