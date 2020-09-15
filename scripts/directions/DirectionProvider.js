@@ -5,27 +5,31 @@ let route
 let locationsData =[]
 
 export const geocodeLocations = (itinerary) => {
-	let locations = object.values(itinerary)
+	let locations = Object.values(itinerary)
 	locations.pop()
 	locations.unshift('nashville')
-	console.log(locations)
 	locations.forEach(location =>{
-		console.log(location)
-		return fetch (`https://graphhopper.com/api/1/geocode?q=${location}&locale=us&debug=true&key=${defaultExport.graphhopperKey}`)
+		fetch (`https://graphhopper.com/api/1/geocode?q=${location}&locale=us&debug=true&key=${defaultExport.graphhopperKey}`)
 			.then((response) => response.json())
 				.then((parsedlocation) => {
 					locationsData.push(parsedlocation);
 				})
-		})
-
+			})
+			return locationsData
 }
 
 
-export const getRoute = (locationsArray) => {
-	let location1= locationsArray[0].hits[0].points
-	let location2= locationsArray[1].hits[0].points
-	let location3= locationsArray[2].hits[0].points
-	let location4= locationsArray[3].hits[0].points
+export const getRoute = (locationsData) => {
+	// debugger;
+	console.log(locationsData)
+	console.log(typeof locationsData)
+	let location1 = locationsData.pop()
+	console.log(location1)
+	
+	// let location1= locationsData[0].hits[0].points
+	let location2= locationsData[1].hits[0].points
+	let location3= locationsData[2].hits[0].points
+	let location4= locationsData[3].hits[0].points
 
 	return fetch (`https://graphhopper.com/api/1/route?point=${location1.lat},${location1.lng}&point=${location2.lat},${location2.lng}&point=${location3.lat},${location3.lng}&point=${location4.lat},${location4.lng}&vehicle=car&locale=us&instructions=true&calc_points=true&key=${defaultExport.graphhopperKey}`)
 	.then((response) => response.json())

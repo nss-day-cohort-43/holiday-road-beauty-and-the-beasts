@@ -12,6 +12,7 @@ import { eateryPreviewListener } from './eateries/EateryPreview.js';
 import { itineraryListener } from './itineraries/itineraryProvider.js';
 import { eateryAccessIcons } from './accessibility/AccessibilityFilter.js';
 import {accessListener} from './parks/AccessibilitySelect.js'
+import { directionListener } from './directions/DirectionList.js';
 
 // This is for the mainListener calls
 eateryPreviewListener();
@@ -21,6 +22,7 @@ parkListener();
 weatherListener();
 accessListener();
 itineraryListener();
+directionListener();
 // This is the end of the mainListener calls
 
 stateSelect();
