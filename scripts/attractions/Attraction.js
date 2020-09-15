@@ -10,7 +10,7 @@ export const AttractionPreviewHTML = (attraction) => {
 //a function which will create additional details for the preview card
 export const AttractionDetailsHTML = (attraction) => {
 	return `
-    <div>${attraction.description}</div> 
+    <div><p>${attraction.description}</p></div> 
     ${amenetiesLogic(attraction)}
     `;
 };
