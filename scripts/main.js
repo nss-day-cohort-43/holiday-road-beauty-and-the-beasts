@@ -9,7 +9,7 @@ import { fetchAccessInfo } from './accessibility/AccessibilityProvider.js';
 
 import { weatherListener } from './weather/WeatherProvider.js';
 import { eateryPreviewListener } from './eateries/EateryPreview.js';
-import { saveItinerary } from './itineraries/itineraryProvider.js';
+import { itineraryListener } from './itineraries/itineraryProvider.js';
 import { eateryAccessIcons } from './accessibility/AccessibilityFilter.js';
 import {accessListener} from './parks/AccessibilitySelect.js'
 
@@ -20,6 +20,7 @@ attractionsPreviewListener();
 parkListener();
 weatherListener();
 accessListener();
+itineraryListener();
 // This is the end of the mainListener calls
 
 stateSelect();
