@@ -22,6 +22,17 @@ header {
 	flex-basis: 75%;
 }
 
+.searchBox {
+	padding: 6px;
+	margin-top: 85px;
+	margin-right: 16px;
+	font-size: 17px;
+	border-radius: 5px;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+	height: 20px;
+}
+
 /* This is the end for the header styling  */
 
 body {
