@@ -93,3 +93,6 @@ export const getItineraries = () => {
             itineraries = parsedItinerary
         })
 }
+
+//this connects the page to main.js
+export const itineraryListener= ()=> {}
