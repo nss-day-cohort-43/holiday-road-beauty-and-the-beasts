@@ -87,6 +87,7 @@ eventHub.addEventListener("accessChosen", (event) => {
     const accessDetailsTarget = document.querySelector(".access-details")
     const type = event.detail.accessWanted
     const _selector = document.querySelector(`input[value=${type}]`)
+    //checks to see if previously rendered, if not, fetches
     if(_selector.checked === true && !accessDetailsTarget.textContent.includes(`All ${type}`)){
     const parkChosen = parkInfoCopy()
     const officialParkCode = parkChosen[0].parkCode;
@@ -96,12 +97,19 @@ eventHub.addEventListener("accessChosen", (event) => {
 		response.json().then((parsedPark) => {
             parkAccessibility = parsedPark;
             renderAccessDetails(type)
+            let specificTypeContainer = document.querySelector(`#${type}`)
+            //checks to see if relevant info came back, if not, alerts the user that there is no info
+            if(!specificTypeContainer.innerHTML.includes(`access-type`)){
+                specificTypeContainer.innerHTML += `<br>No Data`
+            }
 		})
     )}
+    //if previously rendered, displays again
     else if(_selector.checked === true && accessDetailsTarget.textContent.includes(`All ${type}`)){
         const individualContainerTarget = document.querySelector(`#${type}`)
         individualContainerTarget.style.display = ""
     }
+    //if unchecked box, hides related details
     else if(_selector.checked === false){
         if(accessDetailsTarget.textContent.includes(`${type}`)){
             const individualContainerTarget = document.querySelector(`#${type}`)
@@ -113,34 +121,33 @@ eventHub.addEventListener("accessChosen", (event) => {
 //defines html for each access type
 const renderAccessDetails = (type) => {
     const accessDetailsTarget = document.querySelector(".access-details")
+    //if completely empty, creates new innerHTML div
     if(accessDetailsTarget.innerHTML === ""){
-    accessDetailsTarget.innerHTML = `<div class="details-card" id="${type}">All ${type}</div>`}
+        accessDetailsTarget.innerHTML = `<div class="details-card" id="${type}">All ${type}</div>`}
+    //if not empty, adds to it new container    
     else{accessDetailsTarget.innerHTML += `<div class="details-card" id="${type}">All ${type}</div>`}
-    const individualContainerTarget = document.querySelector(`#${type}`)
     //iterates through categories of all accessibility types
-    if(!individualContainerTarget.innerHTML.includes(`<div class="access-type">`)){
-        for(const obj of allAccessibility){
-            //verifies type chosen to use
-            if(obj.title === type){
-                const parkToSearch = parkAccessibility.data
-                //iterates through list of access types within selected category
-                for(const specific of obj.types){
-                    //iterates through all of relevant park info
-                    for(const realAccess of parkToSearch){
-                        //grabs only relevant array containing specific access type
-                        if(realAccess[0].name === specific){
-                            const specificDetailsTarget = document.querySelector(".details-card")
-                            specificDetailsTarget.innerHTML += `
-                                <div class="access-type">${realAccess[0].name}</div>
-                            `;
-                            //iterates through the park array
-                            for (const park of realAccess[0].parks) {
-                                //iterates through all places within park and defines HTML with link
-                                for (const place of park.places) {
-                                    specificDetailsTarget.innerHTML += `
-                                    <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
-                                    `;
-                                }
+    for(const obj of allAccessibility){
+        //verifies type chosen to use
+        if(obj.title === type){
+            const parkToSearch = parkAccessibility.data
+            //iterates through list of access types within selected category
+            for(const specific of obj.types){
+                //iterates through all of relevant park info
+                for(const realAccess of parkToSearch){
+                    //grabs only relevant array containing specific access type
+                    if(realAccess[0].name === specific){
+                        const specificDetailsTarget = document.querySelector(`#${type}`)
+                        specificDetailsTarget.innerHTML += `
+                            <div class="access-type">${realAccess[0].name}</div>
+                        `;
+                        //iterates through the park array
+                        for (const park of realAccess[0].parks) {
+                            //iterates through all places within park and defines HTML with link
+                            for (const place of park.places) {
+                                specificDetailsTarget.innerHTML += `
+                                <a href="${place.url}" target="_blank" class="place-site">${place.title}</a><br>
+                                `;
                             }
                         }
                     }
