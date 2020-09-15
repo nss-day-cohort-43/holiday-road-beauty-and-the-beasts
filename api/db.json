@@ -7,40 +7,10 @@
       "id": 1
     },
     {
-      "chosenPark": "El Camino Real de los Tejas National Historic Trail",
-      "chosenAttraction": "Cabazon Dinosaurs",
-      "chosenEatery": "Big Bob Gibson Bar-B-Que",
+      "chosenPark": "Boston National Historical Park",
+      "chosenAttraction": "Big White Shirt",
+      "chosenEatery": "The Cozy Inn",
       "id": 2
-    },
-    {
-      "chosenPark": "Mississippi National River and Recreation Area",
-      "chosenAttraction": "E.T. Fresh Jerky",
-      "chosenEatery": "Ocean Pride",
-      "id": 3
-    },
-    {
-      "chosenPark": "New England National Scenic Trail",
-      "chosenAttraction": "Avery’s Beverages",
-      "chosenEatery": "Grand Union Hotel",
-      "id": 4
-    },
-    {
-      "chosenPark": "Great Basin National Park",
-      "chosenAttraction": "The Sip ‘n Dip Lounge Mermaids",
-      "chosenEatery": "Skylight Inn",
-      "id": 5
-    },
-    {
-      "chosenPark": "Hot Springs National Park",
-      "chosenAttraction": "Largest Fork in the US",
-      "chosenEatery": "Louis' Lunch",
-      "id": 6
-    },
-    {
-      "chosenPark": "Fort Vancouver National Historic Site",
-      "chosenAttraction": "Avery’s Beverages",
-      "chosenEatery": "Ocean Pride",
-      "id": 7
     }
   ]
 }
