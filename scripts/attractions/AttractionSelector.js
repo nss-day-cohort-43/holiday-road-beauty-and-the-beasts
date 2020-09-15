@@ -9,7 +9,7 @@ const eventHub = document.querySelector("main")
 const render = attractionCollection => {
     selectorTarget.innerHTML += `
         <select class="dropdown" id="attractionSelect">
-            <option value="0">Choose an attraction!</option>
+            <option value="0">Choose an Attraction!</option>
             ${
                 attractionCollection.map(attractionObj => {
                     return `<option value="${attractionObj.name}">${attractionObj.name}</option>`
