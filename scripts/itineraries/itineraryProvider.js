@@ -94,6 +94,8 @@ export const getItineraries = () => {
         })
 }
 
+
+//click event listener for the display route button, sends custom event to DirectionList 
 eventHub.addEventListener("clicks", (event) => {
     if(event.target.id.contains("routeDisplay")){
         console.log("route clicked")

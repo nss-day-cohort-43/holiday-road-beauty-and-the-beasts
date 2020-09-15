@@ -1,6 +1,5 @@
 import defaultExport from '../Settings.js';
 
-const eventHub = document.querySelector("main")
 
 let route
 let locationsData =[]
