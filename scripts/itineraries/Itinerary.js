@@ -8,6 +8,7 @@ export const ItineraryHTML = (Itinerary) => {
             <li>${Itinerary.chosenAttraction}</li>
             <li>${Itinerary.chosenEatery}</li>
         </ul>
+        <button type=button id="routeDisplay--${Itinerary.id}">Get Route</button>
     </div>   
     `
 }
