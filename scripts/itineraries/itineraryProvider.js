@@ -108,3 +108,5 @@ eventHub.addEventListener("clicks", (event) => {
         eventHub.dispatchEvent(routeEvent)
     }
 })
+//this connects the page to main.js
+export const itineraryListener= ()=> {}

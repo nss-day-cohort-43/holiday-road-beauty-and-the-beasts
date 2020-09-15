@@ -45,7 +45,7 @@ const renderEateryPreview = (eateryChosen) => {
 							return `<div class="eatery-name"><b>${eateryObj.businessName}</b></div>
                     <div class="eatery-location">${eateryObj.city}, ${eateryObj.state}</div>
                     <button id="eateryDetails">Details</button>
-                    <div class="eatery-detail-container"></div>
+										<div class="eatery-detail-container"></div>
                     `;
 						})}
         </div>
@@ -67,7 +67,8 @@ const renderEateryDetails = (eateryObj) => {
 	);
 	let createdHTML = `
   <p>${eateryObj.description}</p>
-  ${amenetiesLogic(eateryObj)}`;
+	${amenetiesLogic(eateryObj)}
+	`;
 
 	return (eateryDetailsTarget.innerHTML = createdHTML);
 };
@@ -110,11 +111,17 @@ const amenetiesLogic = (EateryObj) => {
 	return amenetiesHTML;
 };
 
-eventHub.addEventListener("click", event => {
-    if (event.target.id === "eateryDetails" && event.target.textContent === "Details") {
-        document.getElementById("eateryDetails").textContent = "Hide Details"
-    } else if (event.target.id === "eateryDetails" && event.target.textContent === "Hide Details") {
-		document.getElementById("eateryDetails").textContent = "Details"
-		renderEateryPreview(chosenEateryArray)
-    }
-})
+eventHub.addEventListener('click', (event) => {
+	if (
+		event.target.id === 'eateryDetails' &&
+		event.target.textContent === 'Details'
+	) {
+		document.getElementById('eateryDetails').textContent = 'Hide Details';
+	} else if (
+		event.target.id === 'eateryDetails' &&
+		event.target.textContent === 'Hide Details'
+	) {
+		document.getElementById('eateryDetails').textContent = 'Details';
+		renderEateryPreview(chosenEateryArray);
+	}
+});

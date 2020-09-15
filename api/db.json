@@ -35,6 +35,12 @@
       "chosenAttraction": "Largest Fork in the US",
       "chosenEatery": "Louis' Lunch",
       "id": 6
+    },
+    {
+      "chosenPark": "Fort Vancouver National Historic Site",
+      "chosenAttraction": "Avery’s Beverages",
+      "chosenEatery": "Ocean Pride",
+      "id": 7
     }
   ]
 }

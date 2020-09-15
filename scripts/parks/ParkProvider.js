@@ -31,9 +31,7 @@ eventHub.addEventListener('stateChosen', (event) => {
 	}
 });
 
-
 const parkAccessTarget = document.querySelector('.park-detail-container');
-
 
 //will store signal info
 let parkSignal;
@@ -54,7 +52,7 @@ eventHub.addEventListener('detailsClicked', (event) => {
 
 //parses through signal info data to render what places have cell service
 const renderParkSignal = () => {
-	parkAccessTarget.innerHTML += `<div class="cell-detail"></div>`;
+	parkAccessTarget.innerHTML += `<br><div class="cell-detail"></div>`;
 	const cellDetailTarget = document.querySelector('.cell-detail');
 	for (const object of parkSignal.data) {
 		for (const object2 of object) {
