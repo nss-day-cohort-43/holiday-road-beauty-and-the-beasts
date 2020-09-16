@@ -8,15 +8,19 @@ eventHub.addEventListener("routeBtnClicked", event => {
     geocodeLocations(event.detail).then((response) => {
         
         let locationsData = response
+        console.log(locationsData)
         getRoute(locationsData)
         .then(response => {
             routeData = response
             console.log(routeData)
-            return routeData
         })
+        .then(renderRouteText)
     })
 })
 
 export const directionListener = () => {}
 
-const renderRouteText = () => {}
+const renderRouteText = () => {
+
+
+}

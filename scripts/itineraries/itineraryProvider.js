@@ -94,17 +94,13 @@ export const getItineraries = () => {
         })
 }
 
-
 //click event listener for the display route button, sends custom event to DirectionList 
 eventHub.addEventListener("click", event => {
-    console.log(event.target.id)
     if(event.target.id.includes("routeDisplay")) {
-        console.log("route clicked")
         const [prefix, routeNum] = event.target.id.split("--")
         let chosenItinerary = itineraries.find(obj =>{
             return obj.id == routeNum
         })
-        console.log(chosenItinerary)
         const routeEvent = new CustomEvent("routeBtnClicked", {
             detail: {
                 routeAttraction: chosenItinerary.chosenAttraction,
@@ -116,9 +112,6 @@ eventHub.addEventListener("click", event => {
         eventHub.dispatchEvent(routeEvent)
     }
 })
-
-
-
 
 //this connects the page to main.js
 export const itineraryListener= ()=> {}
