@@ -1,29 +1,18 @@
-import { stateSelect } from './parks/ParkList.js';
-import { parkListener } from './parks/ParkProvider.js';
+import './parks/ParkList.js';
+import './parks/ParkProvider.js';
 import { eateryDropdownRender } from './eateries/EateryList.js';
 import { AttractionSelect } from './attractions/AttractionSelector.js';
-import { attractionsPreviewListener } from './attractions/AttractionsPreview.js';
-import { parkPreviewListener } from './parks/ParkPreview.js';
+import './attractions/AttractionsPreview.js';
+import './parks/ParkPreview.js';
 import { ItineraryList } from './itineraries/ItineraryList.js';
 import { fetchAccessInfo } from './accessibility/AccessibilityProvider.js';
 
-import { weatherListener } from './weather/WeatherProvider.js';
-import { eateryPreviewListener } from './eateries/EateryPreview.js';
-import { itineraryListener } from './itineraries/itineraryProvider.js';
+import './weather/WeatherProvider.js';
+import './eateries/EateryPreview.js';
+import './itineraries/itineraryProvider.js';
 import { eateryAccessIcons } from './accessibility/AccessibilityFilter.js';
-import {accessListener} from './parks/AccessibilitySelect.js'
-import { directionListener } from './directions/DirectionList.js';
-
-// This is for the mainListener calls
-eateryPreviewListener();
-parkPreviewListener();
-attractionsPreviewListener();
-parkListener();
-weatherListener();
-accessListener();
-itineraryListener();
-directionListener();
-// This is the end of the mainListener calls
+import './parks/AccessibilitySelect.js'
+import './directions/DirectionList.js';
 
 stateSelect();
 
@@ -35,7 +24,5 @@ setTimeout(eateryAccessIcons, 1000);
 AttractionSelect();
 // this should make the itinerary section work.
 ItineraryList();
-
-// saveItinerary();
 
 fetchAccessInfo()

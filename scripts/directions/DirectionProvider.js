@@ -1,7 +1,7 @@
 import defaultExport from '../Settings.js';
 
 let locationData = []
-
+//this accesses the graphhopper api, giving it 3 locations and returning a lat and long for each
 export const geocodeLocations = (itinerary) => {
 	let locations = Object.values(itinerary)
 	locations.pop()
@@ -12,7 +12,7 @@ export const geocodeLocations = (itinerary) => {
 	})
 	return Promise.all(requests)
 }
-
+//this feeds the lat and long data from geocodeLocations() into graphhoppers route api and returns a route between all 3 destinations beginnng in nashville
 export const getRoute = (locationsData) => {
 
 	let location1= locationsData[0].hits[0].point
@@ -27,35 +27,3 @@ export const getRoute = (locationsData) => {
 			return route
 		})
 }
-
-
-
-
-
-
-
-
-/*
-All 4 locations (Nashville, bizarrerie, eatery, and national park) need to be sent to Geocoding API to the the latitude and longitude for each one.
-
-Then all 4 lat/long pairs should be in the URL for the request to the Routing API.
-
-The step-by-step instructions in the response from the Routing API should be displayed below the Itinerary Preview section.
-
-
-	<button type=button id="routeDisplay--${Itinerary.id}">Get Route</button>
-
-eventHub.addEventListener("clicks", (event) => {
-	if(event.target.id.contains("routeDisplay")){
-		console.log("route clicked")
-		const [prefix, routeNum] = event.target.id.split("--")
-		const routeEvent = new CustomEvent("routeBtnClicked", {
-			detail: {
-				routeId: routeNum
-			}
-		})
-		eventHub.dispatchEvent(routeEvent)
-	}
-})
-
-	*/

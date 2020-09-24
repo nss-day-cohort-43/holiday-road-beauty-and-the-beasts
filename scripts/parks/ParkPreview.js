@@ -2,9 +2,6 @@ import { useParks } from './ParkProvider.js';
 import { getWeather } from '../weather/WeatherProvider.js';
 import { weatherList } from '../weather/WeatherList.js';
 
-//listener doesn't work without a connection to main
-export const parkPreviewListener = () => {};
-
 //defines eventHub for listener
 const eventHub = document.querySelector('main');
 //defines where park info will be sent on page

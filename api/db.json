@@ -11,6 +11,12 @@
       "chosenAttraction": "Big White Shirt",
       "chosenEatery": "The Cozy Inn",
       "id": 2
+    },
+    {
+      "chosenPark": "Roger Williams National Memorial",
+      "chosenAttraction": "Big White Shirt",
+      "chosenEatery": "Occidental Grill & Seafood",
+      "id": 3
     }
   ]
 }

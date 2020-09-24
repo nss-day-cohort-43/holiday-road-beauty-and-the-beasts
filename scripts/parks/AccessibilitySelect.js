@@ -1,7 +1,5 @@
 import { parkInfoCopy } from './ParkPreview.js';
 import defaultExport from '../Settings.js';
-//allows main.js to recognize this module
-export const accessListener = () => {};
 
 //defines where html will render and event listener
 const accessSelectTarget = document.querySelector('.park-detail-container');

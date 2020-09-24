@@ -13,9 +13,6 @@ export const useParks = () => {
 	return parks.data.slice();
 };
 
-//export so main.js recognizes this file
-export const parkListener = () => {};
-
 //event listener for state chosen that fetches relevant data
 eventHub.addEventListener('stateChosen', (event) => {
 	if ('stateWanted' in event.detail) {

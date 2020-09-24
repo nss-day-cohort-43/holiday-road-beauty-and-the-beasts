@@ -3,9 +3,6 @@
 
 import { useEatery } from './EateryProvider.js';
 
-//listener doesn't work without a connection to main -
-export const eateryPreviewListener = () => {};
-
 //defines eventHub for listener
 const eventHub = document.querySelector('main');
 //defines where eatery info will be sent on page

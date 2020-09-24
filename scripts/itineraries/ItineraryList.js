@@ -32,3 +32,10 @@ eventHub.addEventListener("itineraryStateChanged", () => {
     render(newItinerary)
 })
 
+//adds a click event for a hide route button, which returns the saved itineraries 
+document.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id === "hideRoute") {
+        ItineraryList()
+    }
+
+})
