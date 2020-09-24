@@ -1,22 +1,16 @@
 {
   "itineraries": [
     {
-      "chosenPark": "Civil War Defenses of Washington",
-      "chosenAttraction": "Largest Fork in the US",
-      "chosenEatery": "Louis' Lunch",
-      "id": 1
-    },
-    {
       "chosenPark": "Boston National Historical Park",
       "chosenAttraction": "Big White Shirt",
       "chosenEatery": "The Cozy Inn",
-      "id": 2
+      "id": 1
     },
     {
       "chosenPark": "Roger Williams National Memorial",
       "chosenAttraction": "Big White Shirt",
       "chosenEatery": "Occidental Grill & Seafood",
-      "id": 3
+      "id": 2
     }
   ]
 }

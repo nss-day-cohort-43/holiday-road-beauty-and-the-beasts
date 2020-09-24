@@ -6,14 +6,11 @@ const eventHub = document.querySelector("main")
 //of the route to the graphhopper geolocation api.  this returns a lat and long for each location,
 // then it feeds this data to get route, which uses the graphhopper api to provide a route between all the locations
 eventHub.addEventListener("routeBtnClicked", event => {
-    geocodeLocations(event.detail).then((response) => {
-        
+    geocodeLocations(event.detail).then((response) => {  
         let locationsData = response
-        console.log(locationsData)
         getRoute(locationsData)
         .then(response => {
             let routeData = response
-            console.log(routeData)
             return routeData
         })
         .then(renderRouteText)
@@ -23,13 +20,11 @@ eventHub.addEventListener("routeBtnClicked", event => {
 //then plug it into the DOM
 const renderRouteText = (routeData) => {
     const target = document.querySelector(".saved-itinerary")
-    console.log(routeData.paths[0].instructions)
     let routeHTML  = `<ol>`
     routeHTML += routeData.paths[0].instructions.map(point => {
         return `<li>${point.text}</li>`
     }).join("")
     routeHTML += `</ol><button id="hideRoute">Hide Route</button>`
-    console.log(routeHTML)
     target.innerHTML = routeHTML
 }
 

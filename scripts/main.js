@@ -13,6 +13,7 @@ import './itineraries/itineraryProvider.js';
 import { eateryAccessIcons } from './accessibility/AccessibilityFilter.js';
 import './parks/AccessibilitySelect.js'
 import './directions/DirectionList.js';
+import { stateSelect } from './parks/ParkList.js';
 
 stateSelect();
 
